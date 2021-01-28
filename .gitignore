@@ -6,4 +6,5 @@ Revistas/Articulos/*.class
 Database/*.class
 
 # Comando necesario para crear el JavaDoc
-# javadoc -d docs/ -version -author -use *.java .\Personas\*.java .\Revistas\*.java .\*.java
+
+# javadoc -d docs/ -version -author -use .\Personas\*.java .\Revistas\*.java .\*.java <- Este es el bueno
