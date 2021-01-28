@@ -4,6 +4,6 @@ Personas/Subscriptores/*.class
 Revistas/*.class
 Revistas/Articulos/*.class
 Database/*.class
-
+*.class
 # Comando necesario para crear o actualizar el JavaDoc
 # javadoc -d docs/ -version -author -use .\Personas\*.java .\Revistas\*.java .\*.java
