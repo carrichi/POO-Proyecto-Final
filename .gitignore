@@ -1,0 +1,6 @@
+Personas/*.class
+Personas/Empleados/*.class
+Personas/Subscriptores/*.class
+Revistas/*.class
+Revistas/Articulos/*.class
+Database/*.class

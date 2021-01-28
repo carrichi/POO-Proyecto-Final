@@ -6,7 +6,7 @@ package Personas;
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
-// AQUÍ DEBERÍAN IR ESCRITAS
+
 
 /**
  * 
