@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"Start"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"Revistas","l":"Articulo"},{"p":"Revistas","l":"Categoria"},{"p":"Revistas","l":"Contenido"},{"p":"Personas","l":"Persona"},{"p":"Revistas","l":"Revista"},{"p":"<Unnamed>","l":"Start"}];updateSearchResults();
