@@ -41,11 +41,14 @@ public class Revista {
      */
     private boolean publicada;
 
-    /*
+    /**
      * Aquí se esquematiza el contenido de una revista, va a estar separada por las
-     * categorías: - Inteligencia Artificial - Análisis de Sistemas de Software -
-     * Bases de Datos - Hardware Todas estas categorías y separaciones serán
-     * manejadas por una instancia llamada "Contenido".
+     * categorías: 
+     *      - "Inteligencia Artificial" 
+     *      - "Análisis de Sistemas de Software" 
+     *      - "Bases de Datos" 
+     *      - "Hardware" 
+     * Todas estas categorías y separaciones serán manejadas por una instancia llamada "Contenido".
      */
     private Contenido contenido;
 
