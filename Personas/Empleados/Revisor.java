@@ -3,17 +3,23 @@
 **********************************************/
 package Personas.Empleados;
 
-import java.util.Date;
+
 
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
-// Aqui van escritas.
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 
  */
-public class Revisor extends Empleado {
+public class Revisor extends Empleado implements Serializable {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     /********************************************
      * ATRIBUTOS DE INSTANCIA *
      *********************************************/
@@ -32,6 +38,25 @@ public class Revisor extends Empleado {
     *          CONSTRUCTORES           *
     ************************************/
 
+    /**
+     * 
+     */
+    public Revisor () {
+
+    }
+
+
+    /**
+     * 
+     * @param nombre
+     * @param apellidoP
+     * @param apellidoM
+     * @param email
+     * @param password
+     * @param fechaIngreso
+     * @param institucionProcedencia
+     * @param numeroEmpleado
+     */
     public Revisor(String nombre, String apellidoP, String apellidoM, String email, String password, Date fechaIngreso,
             String institucionProcedencia, int numeroEmpleado) {
         super(nombre, apellidoP, apellidoM, email, password, fechaIngreso, institucionProcedencia, numeroEmpleado);

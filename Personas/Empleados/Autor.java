@@ -3,20 +3,24 @@
 **********************************************/
 package Personas.Empleados;
 
-import java.util.Date;
-
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
-// java.util.Scanner <- Ejemplo
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 
  */
-public class Autor extends Empleado {
+public class Autor extends Empleado implements Serializable {
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * Hace referencia a la cantidad de articulos que ha escrito el empleado
@@ -28,6 +32,13 @@ public class Autor extends Empleado {
     /***********************************
     *          CONSTRUCTORES           *
     ************************************/
+
+    /**
+     * 
+     */
+    public Autor () {
+
+    }
 
     /**
      * 

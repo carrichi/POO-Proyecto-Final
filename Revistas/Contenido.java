@@ -7,6 +7,7 @@ package Revistas;
 *          CLASES DE APOYO            *
 ***************************************/
 import java.util.ArrayList;
+import java.io.Serializable;
 
 /**
  * En esta clase se define el contenido que tendra cada una de las revistas. EL
@@ -14,8 +15,13 @@ import java.util.ArrayList;
  * articulos correspondientes, forzosamente por cada categotogia se requieren al
  * menos dos articulos.
  */
-public class Contenido {
+public class Contenido implements Serializable {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    
     private ArrayList<Categoria> categorias;
 
     /**

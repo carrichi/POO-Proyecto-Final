@@ -39,6 +39,13 @@ public class Empleado extends Persona {
 
     /**
      * 
+     */
+    public Empleado () {
+
+    }
+
+    /**
+     * 
      * @param nombre
      * @param apellidoP
      * @param apellidoM

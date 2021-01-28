@@ -8,16 +8,22 @@ package Revistas;
 ***************************************/
 import Personas.Empleados.Autor;
 import Personas.Empleados.Revisor;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * 
  */
-public class Articulo {
+public class Articulo implements Serializable {
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
     
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     /**
      * 
      */

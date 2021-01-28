@@ -7,14 +7,20 @@ package Revistas;
 *          CLASES DE APOYO            *
 ***************************************/
 import java.util.Date;
+import java.io.Serializable;
 
 /**
  * 
  */
-public class Revista {
+public class Revista implements Serializable {
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * 
@@ -62,6 +68,10 @@ public class Revista {
      */
     public Revista() {
 
+    }
+
+    public Revista(String titulo) {
+        this.titulo = titulo;
     }
 
 
@@ -167,5 +177,9 @@ public class Revista {
      */
     public void setContenido(Contenido contenido) {
         this.contenido = contenido;
+    }
+
+    public String toString() {
+        return this.titulo;
     }
 }
