@@ -44,25 +44,25 @@ public class Articulo {
     private Autor[] autores = new Autor[3];
 
     /**
-     * Este atributo expresa si un artículo se encuentra "aceptado", "pendiente" o
+     * Este atributo expresa si un articulo se encuentra "aceptado", "pendiente" o
      * "rechazado."
      */
     private String estadoRevision;
 
     /**
-     * Este hará referencia si fue publicado o si no.
+     * Este hara referencia si fue publicado o si no.
      */
     private boolean publicado;
 
     /**
-     * Lista que indica los empleados que han revisado el artículo en cuestión. No
-     * tiene un límite.
+     * Lista que indica los empleados que han revisado el articulo en cuestion. No
+     * tiene un limite.
      */
     private ArrayList<Revisor> revisores;
 
     /**
      * Contiene las calificaciones que fueron dadas por los revisores, estas siempre
-     * son en un rango de 0 a 10. Como no hay un límite de revisores, tampoco habrá
+     * son en un rango de 0 a 10. Como no hay un limite de revisores, tampoco habra
      * de calificaciones.
      */
     private ArrayList<Integer> calificaciones;
@@ -77,7 +77,7 @@ public class Articulo {
 
 
     /******************************************
-    *          MÉTODOS DE INSTANCIA           *
+    *          METODOS DE INSTANCIA           *
     *          (Getters y Setters)            *
     *******************************************/
 

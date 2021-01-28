@@ -30,7 +30,7 @@ public class Editor extends Empleado {
     private String maestriaDoctorado;
     
     /**
-     * Hace referencia a la cantidad de artículos que ha revisado el empleado
+     * Hace referencia a la cantidad de articulos que ha revisado el empleado
      * "revisor".
      */
     private int articulosRevisados;
@@ -58,7 +58,7 @@ public class Editor extends Empleado {
     }
 
     /********************************************
-    *           MÉTODOS DE INSTANCIA            *
+    *           METODOS DE INSTANCIA            *
     *            (Getters y Setters)            *
     *********************************************/
 

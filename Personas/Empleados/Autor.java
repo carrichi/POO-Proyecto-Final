@@ -19,7 +19,7 @@ public class Autor extends Empleado {
     *********************************************/
 
     /**
-     * Hace referencia a la cantidad de artículos que ha escrito el empleado
+     * Hace referencia a la cantidad de articulos que ha escrito el empleado
      * "autor".
      */
     private int articulosEscritos;
@@ -47,7 +47,7 @@ public class Autor extends Empleado {
 
 
     /******************************************
-    *          MÉTODOS DE INSTANCIA           *
+    *          METODOS DE INSTANCIA           *
     *          (Getters y Setters)            *
     *******************************************/
 

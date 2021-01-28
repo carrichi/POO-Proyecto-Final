@@ -8,7 +8,7 @@ import java.util.Date;
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
-// Aquí van escritas.
+// Aqui van escritas.
 
 /**
  * 
@@ -23,7 +23,7 @@ public class Revisor extends Empleado {
     private String aniosExperencia;
 
     /**
-     * Hace referencia a la cantidad de artículos que ha revisado el empleado "revisor".
+     * Hace referencia a la cantidad de articulos que ha revisado el empleado "revisor".
      */
     private int articulosRevisados;
 
@@ -39,7 +39,7 @@ public class Revisor extends Empleado {
 
 
     /******************************************
-    *          MÉTODOS DE INSTANCIA           *
+    *          METODOS DE INSTANCIA           *
     *          (Getters y Setters)            *
     *******************************************/    
 

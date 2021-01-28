@@ -63,7 +63,7 @@ public class Persona {
 
 
     /******************************************
-    *          MÉTODOS DE INSTANCIA           *
+    *          METODOS DE INSTANCIA           *
     *          (Getters y Setters)            *
     *******************************************/
 

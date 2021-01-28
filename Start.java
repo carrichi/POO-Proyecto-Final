@@ -1,5 +1,5 @@
 /**
- * Esta es la clase que realizará la ejecución de todo el sistema de administración.
+ * Esta es la clase que realizara la ejecucion de todo el sistema de administracion.
  */
 public class Start {
     

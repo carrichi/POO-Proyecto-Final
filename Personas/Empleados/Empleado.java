@@ -58,7 +58,7 @@ public class Empleado extends Persona {
 
 
     /******************************************
-    *          MÉTODOS DE INSTANCIA           *
+    *          METODOS DE INSTANCIA           *
     *          (Getters y Setters)            *
     *******************************************/
 

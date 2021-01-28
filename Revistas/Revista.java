@@ -42,13 +42,13 @@ public class Revista {
     private boolean publicada;
 
     /**
-     * Aquí se esquematiza el contenido de una revista, va a estar separada por las
-     * categorías: 
+     * Aqui se esquematiza el contenido de una revista, va a estar separada por las
+     * categorias: 
      *      - "Inteligencia Artificial" 
-     *      - "Análisis de Sistemas de Software" 
+     *      - "Analisis de Sistemas de Software" 
      *      - "Bases de Datos" 
      *      - "Hardware" 
-     * Todas estas categorías y separaciones serán manejadas por una instancia llamada "Contenido".
+     * Todas estas categorias y separaciones seran manejadas por una instancia llamada "Contenido".
      */
     private Contenido contenido;
 
@@ -66,7 +66,7 @@ public class Revista {
 
 
     /******************************************
-    *          MÉTODOS DE INSTANCIA           *
+    *          METODOS DE INSTANCIA           *
     *          (Getters y Setters)            *
     *******************************************/
 
@@ -119,7 +119,7 @@ public class Revista {
     }
 
     /**
-     * Este método hará posible saber si una revista tiene un estado de "publicada" o "sin publicar" mediante
+     * Este metodo hara posible saber si una revista tiene un estado de "publicada" o "sin publicar" mediante
      * una cadena de caracteres.
      * @return
      */
@@ -128,8 +128,8 @@ public class Revista {
     }
 
     /**
-     * Con este método se puede asignar un nuevo estado "publicada" o "sin publicar" como CADENA DE CARACTERES.
-     * @param estado Cadena de caracteres que hará referencia al nuevo estado de la revista.
+     * Con este metodo se puede asignar un nuevo estado "publicada" o "sin publicar" como CADENA DE CARACTERES.
+     * @param estado Cadena de caracteres que hara referencia al nuevo estado de la revista.
      */
     public void setEstado(String estado) {
         this.estado = estado;
@@ -144,10 +144,10 @@ public class Revista {
     }
 
     /**
-     * Mediante este método se puede asignar el estado de una revista.
+     * Mediante este metodo se puede asignar el estado de una revista.
      * True si se encuentra publicada.
-     * False si no está publicada.
-     * @param publicada Valor booleano que expresará el nuevo estado de la revista.
+     * False si no esta publicada.
+     * @param publicada Valor booleano que expresara el nuevo estado de la revista.
      */
     public void setEstadoPublicada(boolean publicada) {
         this.publicada = publicada;

@@ -9,7 +9,7 @@ package Revistas;
 import java.util.ArrayList;
 
 /**
- * Esta clase representará una de las categorías que están contenidas dentro de
+ * Esta clase representara una de las categorias que estan contenidas dentro de
  * una revista.
  */
 public class Categoria {

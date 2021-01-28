@@ -9,18 +9,18 @@ package Revistas;
 import java.util.ArrayList;
 
 /**
- * En esta clase se define el contenido que tendrá cada una de las revistas. EL
- * contenido está dividido por categorías y cada una de estas contiene los
- * artículos correspondientes, forzosamente por cada categotogía se requieren al
- * menos dos artículos.
+ * En esta clase se define el contenido que tendra cada una de las revistas. EL
+ * contenido esta dividido por categorias y cada una de estas contiene los
+ * articulos correspondientes, forzosamente por cada categotogia se requieren al
+ * menos dos articulos.
  */
 public class Contenido {
 
     private ArrayList<Categoria> categorias;
 
     /**
-     * Constructor inicial que inicializa la creación de las categorías con el fin
-     * de que estén listas para añadir artículos.
+     * Constructor inicial que inicializa la creacion de las categorias con el fin
+     * de que esten listas para agregar articulos.
      */
     public Contenido() {
 
@@ -43,6 +43,6 @@ public class Contenido {
     *************************************/
 
     /******************************************
-    *          MÉTODOS DE INSTANCIA           *
+    *          METODOS DE INSTANCIA           *
     *          (Getters y Setters)            *
     *******************************************/
