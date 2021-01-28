@@ -7,7 +7,6 @@ package Revistas;
 *          CLASES DE APOYO            *
 ***************************************/
 import java.util.ArrayList;
-import Revistas.Articulos.Articulo;
 
 /**
  * En esta clase se define el contenido que tendrá cada una de las revistas. EL
@@ -27,11 +26,11 @@ public class Contenido {
 
     }
 
-    public ArrayList<ArrayList<Articulo>> getCategorias() {
+    public ArrayList<Categoria> getCategorias() {
         return categorias;
     }
 
-    public void setCategorias(ArrayList<ArrayList<Articulo>> categorias) {
+    public void setCategorias(ArrayList<Categoria> categorias) {
         this.categorias = categorias;
     }
 }

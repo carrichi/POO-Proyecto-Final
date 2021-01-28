@@ -1,7 +1,7 @@
 /*********************************************
 *          PAQUETE CORRESPONDIENTE           *
 **********************************************/
-package Revistas.Articulos;
+package Revistas;
 
 /**************************************
 *          CLASES DE APOYO            *
