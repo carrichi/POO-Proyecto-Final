@@ -8,11 +8,13 @@ package Personas.Empleados;
 ***************************************/
 import java.io.Serializable;
 import java.util.Date;
+import Personas.Visitable;
+import Personas.Visitor;
 
 /**
  * 
  */
-public class Autor extends Empleado implements Serializable {
+public class Autor extends Empleado implements Serializable,Visitable {
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
@@ -77,4 +79,8 @@ public class Autor extends Empleado implements Serializable {
     public void setArticulosEscritos(int articulosEscritos) {
         this.articulosEscritos = articulosEscritos;
     }
+    
+    public void aceptar(Visitor visitor){
+		visitor.visit(this);
+	}
 }
