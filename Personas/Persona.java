@@ -6,12 +6,12 @@ package Personas;
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
-
+import java.io.Serializable;
 
 /**
  * 
  */
-public class Persona {
+public class Persona implements Serializable {
     /********************************************
     *          ATRIBUTOS DE INSTANCIA           *
     *********************************************/
