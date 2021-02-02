@@ -10,11 +10,14 @@ package Personas.Subscriptores;
 // import java.text.ParseException;
 import java.util.Date;
 import Personas.Persona;
+import Personas.Visitable;
+import Personas.Visitor;
+import java.io.Serializable;
 
 /**
  * 
  */
-public class Subscriptor extends Persona {
+public class Subscriptor extends Persona implements Visitable,Serializable{
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
@@ -63,4 +66,8 @@ public class Subscriptor extends Persona {
     public void setSuscripcion(Date suscripcion) {
         this.suscripcion = suscripcion;
     }
+    
+    public void aceptar(Visitor visitor){
+		visitor.visit(this);
+	}
 }
