@@ -10,11 +10,13 @@ package Personas.Empleados;
 ***************************************/
 import java.io.Serializable;
 import java.util.Date;
+import Personas.Visitable;
+import Personas.Visitor;
 
 /**
  * 
  */
-public class Revisor extends Empleado implements Serializable {
+public class Revisor extends Empleado implements Serializable,Visitable {
     /**
      *
      */
@@ -99,4 +101,8 @@ public class Revisor extends Empleado implements Serializable {
     public void setAniosExperencia(String aniosExperencia) {
         this.aniosExperencia = aniosExperencia;
     }
+    
+    public void aceptar(Visitor visitor){
+		visitor.visit(this);
+	}
 }
