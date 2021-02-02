@@ -10,11 +10,12 @@ package Personas.Empleados;
 // import java.text.ParseException;
 import java.util.Date;
 import Personas.Persona;
+import java.io.Serializable;
 
 /**
  * 
  */
-public class Empleado extends Persona {
+public class Empleado extends Persona implements Serializable{
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
