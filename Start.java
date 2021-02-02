@@ -139,5 +139,36 @@ public class Start {
 
             exit = true;
         }
+         /*  PRUEBA DE VISITOR
+        
+        Editor editor=new Editor("juan","perez","gomez","abc@gmail.com","contraseña", new Date(System.currentTimeMillis()),"no se",2);
+		editor.setNumeroCedula(123);
+		editor.setMaestriaDoctorado("doc");
+		editor.setArticulosRevisados(5);
+		
+		ArchivoVisitor ArVisitor=new ArchivoVisitor();
+		editor.aceptar(ArVisitor);
+		
+		ObjectInputStream fileIn;
+        Editor editor1;
+        try{
+            fileIn = new ObjectInputStream(new FileInputStream("Editores.txt"));
+            editor1 = (Editor) fileIn.readObject();
+            editor1.mostrar();
+            fileIn.close();
+        }
+        catch (IOException e){
+			System.out.println("IOException " + e.getMessage());
+            //StringWriter sw = new StringWriter();
+            //e.printStackTrace(new PrintWriter(sw));
+            //String exceptionAsString = sw.toString();
+            //System.out.println(exceptionAsString);
+        }
+        catch (ClassNotFoundException e) {
+            System.out.println("ClassNotFound " + e.getMessage());
+        }
+        
+        */
+        
     }
 }
