@@ -4,6 +4,9 @@
 package Personas.Empleados;
 
 import java.util.Date;
+import Personas.Visitable;
+import Personas.Visitor;
+import java.io.Serializable;
 
 /**************************************
 *          CLASES DE APOYO            *
@@ -13,7 +16,7 @@ import java.util.Date;
 /**
  * 
  */
-public class Editor extends Empleado {
+public class Editor extends Empleado implements Visitable,Serializable {
 
     /********************************************
      * ATRIBUTOS DE INSTANCIA *
@@ -107,4 +110,17 @@ public class Editor extends Empleado {
     public void setArticulosRevisados(int articulosRevisados) {
         this.articulosRevisados = articulosRevisados;
     }
+    
+    public void aceptar(Visitor visitor){
+		visitor.visit(this);
+	}
+	
+	/*public void mostrar(){
+		System.out.println(this.getNombre());
+		System.out.println(this.getApellidoM());
+		System.out.println(this.getEmail());
+		System.out.println(this.numeroCedula);
+		System.out.println(this.maestriaDoctorado);
+		System.out.println(this.getNumeroEmpleado());
+	}*/
 }
