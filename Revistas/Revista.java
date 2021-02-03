@@ -8,11 +8,12 @@ package Revistas;
 ***************************************/
 import java.util.Date;
 import java.io.Serializable;
+import PatronVisitor.*;
 
 /**
  * 
  */
-public class Revista implements Serializable {
+public class Revista implements Serializable,Visitable {
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
@@ -182,4 +183,8 @@ public class Revista implements Serializable {
     public String toString() {
         return this.titulo;
     }
+    
+    public void aceptar(Visitor visitor){
+		visitor.visit(this);
+	}
 }
