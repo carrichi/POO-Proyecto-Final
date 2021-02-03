@@ -4,8 +4,7 @@
 package Personas.Empleados;
 
 import java.util.Date;
-import Personas.Visitable;
-import Personas.Visitor;
+import PatronVisitor.*;
 import java.io.Serializable;
 
 /**************************************
