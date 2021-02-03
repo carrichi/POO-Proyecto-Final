@@ -10,11 +10,12 @@ import Personas.Empleados.Autor;
 import Personas.Empleados.Revisor;
 import java.io.Serializable;
 import java.util.ArrayList;
+import PatronVisitor.*;
 
 /**
  * 
  */
-public class Articulo implements Serializable {
+public class Articulo implements Serializable,Visitable {
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
@@ -227,4 +228,8 @@ public class Articulo implements Serializable {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+    
+    public void aceptar(Visitor visitor){
+		visitor.visit(this);
+	}
 }
