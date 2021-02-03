@@ -11,6 +11,7 @@ package Personas.Empleados;
 import java.util.Date;
 import Personas.Persona;
 import java.io.Serializable;
+import PatronVisitor.*;
 
 /**
  * 
