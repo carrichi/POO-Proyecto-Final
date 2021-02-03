@@ -10,9 +10,8 @@ package Personas.Subscriptores;
 // import java.text.ParseException;
 import java.util.Date;
 import Personas.Persona;
-import Personas.Visitable;
-import Personas.Visitor;
 import java.io.Serializable;
+import PatronVisitor.*;
 
 /**
  * 
