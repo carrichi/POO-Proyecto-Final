@@ -10,6 +10,12 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import Revistas.Revista;
 import Personas.Persona;
+import java.sql.Date;
+import Personas.Empleados.*;
+import Personas.*;
+//import java.io.PrintWriter;
+//import java.io.StringWriter;
+import PatronVisitor.*;
 
 /**
  * Esta es la clase que realizara la ejecucion de todo el sistema de
