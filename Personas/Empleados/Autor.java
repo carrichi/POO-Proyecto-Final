@@ -8,8 +8,7 @@ package Personas.Empleados;
 ***************************************/
 import java.io.Serializable;
 import java.util.Date;
-import Personas.Visitable;
-import Personas.Visitor;
+import PatronVisitor.*;
 
 /**
  * 
