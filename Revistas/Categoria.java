@@ -8,12 +8,13 @@ package Revistas;
 ***************************************/
 import java.util.ArrayList;
 import java.io.Serializable;
+import PatronVisitor.*;
 
 /**
  * Esta clase representara una de las categorias que estan contenidas dentro de
  * una revista.
  */
-public class Categoria implements Serializable {
+public class Categoria implements Serializable,Visitable {
 
     /**
      *
@@ -42,4 +43,8 @@ public class Categoria implements Serializable {
     public int getNumArticulos() {
         return this.articulos.size();
     }
+    
+    public void aceptar(Visitor visitor){
+		visitor.visit(this);
+	}
 }
