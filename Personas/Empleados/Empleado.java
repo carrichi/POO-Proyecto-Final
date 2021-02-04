@@ -16,7 +16,7 @@ import PatronVisitor.*;
 /**
  * 
  */
-public class Empleado extends Persona implements Serializable{
+public class Empleado extends Persona implements Serializable, Visitable{
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
@@ -117,4 +117,8 @@ public class Empleado extends Persona implements Serializable{
     public void setInstitucionProcedencia(String institucionProcedencia) {
         this.institucionProcedencia = institucionProcedencia;
     }
+    
+    ublic void aceptar(Visitor visitor){
+		visitor.visit(this);
+	}
 }
