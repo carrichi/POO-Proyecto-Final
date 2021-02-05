@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import Revistas.Revista;
 import Personas.Persona;
-import java.sql.Date;
+// import java.sql.Date;
 import Personas.Empleados.*;
 import Personas.*;
 //import java.io.PrintWriter;
@@ -49,14 +49,17 @@ public class Start {
                 - Registrarse como suscriptor
                 - Continuar como invitado
                 - Salir
-                - ¿Ver créditos de desarrolladores? JAJAJAJA
         */
-        // int opcion = Menu.bienvenida(); // <- Este posible método mostrará las opciones y retornará su opción tomada.
+        int opcion = Menu.bienvenida(); // <- Este método mostrará las opciones y retornará su opción tomada.
 
         /*
             2. Dependiendo de su decición se definirá la siguiente acción del usuario.
         */
-
+        /* 
+            Principalmente se define una variable que indique si el programa debe de terminar, en este caso
+            se espera que sea un ciclo que se detenga, se define fuera del switch porque todos los casos
+            dependerán de la misma variable.
+        */
         boolean exit = false;
 
         switch (opcion) {
@@ -75,8 +78,19 @@ public class Start {
             case 3:
                 /*
                     El usuario decició continuar como invitado.
+                    Las opciones que este tendrá serán:
+                     - 1. Realizar una búsqueda
+                           - Buscar un artículo, mediante folio.
+                           - Buscar una revista, mediante número de revista.
+                           - Mostrar todos los artículos
+                           - Mostrar todas las revistas
+
+                           (Ya después de haber sido creada la búsqueda se pregunta si esta quiere ser impresa en un
+                            archivo).
+                     - 2. Iniciar sesión.
+                     - 3. Salir del programa.
                 */
-                // Se muestra el "menú" con solo las opciones a las que puede tener acceso. 
+                
                 break;
             case 4:
                 /*
