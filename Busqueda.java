@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import Personas.Persona;
 import Personas.Empleados.*;
 import Personas.Suscriptores.Suscriptor;
 import Revistas.Revista;
@@ -19,7 +20,19 @@ import Revistas.Articulo;
 * 
 */
 public class Busqueda {
+
+    public static Persona verificarInicioSesion(String email, String password) {
+        /*
+            Aquí es donde se realiza la verificación de que el usuario existe.  
+        */
+        Persona resultado = buscarUsuario();
+        return resultado;
+    }
     
+    public static Persona buscarUsuario() {
+        return null;
+    }
+
     public static Autor buscar(Autor autor) {
         return null;
     }
