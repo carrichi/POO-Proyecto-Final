@@ -11,6 +11,9 @@ public class Menu{
 	
 	static Scanner sc = new Scanner(System.in);
 	
+	/**
+	 * Inicio del programa
+	 */
 	public static int bienvenida(){
 		System.out.println(" \n\tBIENVENIDO AL SISTEMA DE ADMINISTRACIÓN\n");
 		System.out.println(" 1. Iniciar sesión");
@@ -23,6 +26,9 @@ public class Menu{
 		return opcion;
 	}
 	
+	/**
+	 * Inicio de sesion por usuario
+	 */
 	public static void inicioSesion(){
 		
 		String mail;
@@ -44,59 +50,22 @@ public class Menu{
 		ObjectInputStream fileIn;
 		try{
 		switch(opcion){
-			case 1:/* fileIn = new ObjectInputStream(new FileInputStream("Autores.ser"));
-					Autor autor = buscar( (Autor)per,fileIn);
-					if(autor!=null){
-						System.out.println(" Inicio de secion con exito");
-						menuAutor(autor);
-					}
-					else
-						System.out.println(" Error : no existe el usuario");*/
+			case 1: menuAutor();
 					break;
-			case 2: 
+			case 2: menuEditor();
 					break;
-			case 3: 
+			case 3: menuRevisor();
 					break;
-			case 4: 
+			case 4: menuSuscriptor();
 					break;
 			case 5: break;
 			default: System.out.println(" Error al ingresar la opcion");
 		}
-		}catch(FileNotFoundException e){
-		}catch(IOException e){}
-		
-		/*Persona aux=new Persona();
-		aux.setEmail(mail);
-		aux.setPassword(psswrd);
-		buscarUsuario(aux,opcion);*/
-		
 		
 	}
 	
-	/*public static Autor buscar(Autor autor,ObjectInputStream ois){
-		int bandera=0;
-		Autor aux=null;
-		try{
-			aux=(Autor)ois.readObject();
-		
-			while(aux.getNombre()!=null){
-				if(aux.getEmail()==autor.getEmail()  &&  aux.getPassword()==autor.getPassword()){
-					bandera=1;
-					break;
-				}
-				aux=(Autor)ois.readObject();
-			}
-		
-		}catch(FileNotFoundException e){
-		}catch(IOException e){
-		}catch(ClassNotFoundException e){}
-		
-		if(bandera==1){
-			return aux;
-		}else
-			return null;
-	}*/
-	
+	/** @param sub Suscriptor a registrar
+	 */
 	public void registrar(Subscriptor sub){
 		String aP,aM,nom,mail,cont;
 		
@@ -115,6 +84,8 @@ public class Menu{
 		
 	}
 	
+	/** @param autor Autor a registrar
+	 */
 	public void registrar(Autor autor){
 		String aP,aM,nom,mail,cont;
 		
@@ -133,6 +104,8 @@ public class Menu{
 		
 	}
 	
+	/** @param editor Editor a registrar
+	 */
 	public void registrar(Editor editor){
 		String aP,aM,nom,mail,cont;
 		
@@ -151,6 +124,8 @@ public class Menu{
 		
 	}
 	
+	/** @param revisor Revisor a registrar
+	 */
 	public void registrar(Revisor revisor){
 		String aP,aM,nom,mail,cont;
 		
@@ -168,49 +143,73 @@ public class Menu{
 		String psswrd=new String(p);
 		
 	}
+	
+	/** Muestra el menú para el usuario Autor
+	 */
 	public static void menuAutor(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Subir articulo para revision");
-		System.out.println(" 2. Salir");
+		System.out.println(" 2. Consultar estado de articulo");
+		System.out.println(" 3. Consultar articulo");
+		System.out.println(" 4. Salir");
 		int opcion=sc.nextInt();
 		switch(opcion){
 			case 1: System.out.println(" ")
 					break;
-					
-			case 2: break;
+			case 2: 
+					break;
+			case 3: 
+					break;
+			case 4: break;
 			default: System.out.println(" Opción incorrecta");
 		}
 	}
 	
+	/** Muestra el menú para el usuario Editor
+	 */
 	public static void menuEditor(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Confirmar publicacion");
-		System.out.println(" 2. Salir");
+		System.out.println(" 2. Consultar estado de articulo");
+		System.out.println(" 3. Consultar articulo");
+		System.out.println(" 4. Salir");
 		int opcion=sc.nextInt();
 		switch(opcion){
 			case 1: System.out.println(" ")
 					break;
-					
-			case 2: break;
+			case 2: 
+					break;
+			case 3: 
+					break;
+			case 4: break;
 			default: System.out.println(" Opción incorrecta");
 		}
 		
 	}
 	
+	/** Muestra el menú para el usuario Revisor
+	 */
 	public static void menuRevisor(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Revisar artículo");
-		System.out.println(" 2. Salir");
+		System.out.println(" 2. Consultar estado de articulo");
+		System.out.println(" 3. Consultar articulo");
+		System.out.println(" 4. Salir");
 		int opcion=sc.nextInt();
 		switch(opcion){
 			case 1: System.out.println(" ")
 					break;
-					
-			case 2: break;
+			case 2: 
+					break;
+			case 3: 
+					break;
+			case 4: break;
 			default: System.out.println(" Opción incorrecta");
 		}
 	}
 	
+	/** Muestra el menú para el usuario Suscriptor
+	 */
 	public static void menuSuscriptor(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Ver revista");
@@ -220,7 +219,6 @@ public class Menu{
 		switch(opcion){
 			case 1: System.out.println(" ")
 					break;
-					
 			case 2: 
 					break;
 			case 3: break;
