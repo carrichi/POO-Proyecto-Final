@@ -5,6 +5,8 @@ package Personas.Empleados;
 
 import java.util.Date;
 import PatronVisitor.*;
+import Personas.Persona;
+
 import java.io.Serializable;
 
 /**************************************
@@ -15,7 +17,7 @@ import java.io.Serializable;
 /**
  * 
  */
-public class Editor extends Empleado implements Visitable,Serializable {
+public class Editor extends Empleado implements Visitable, Serializable {
 
     /********************************************
      * ATRIBUTOS DE INSTANCIA *
@@ -44,18 +46,14 @@ public class Editor extends Empleado implements Visitable,Serializable {
 
     /**
      * 
-     * @param nombre
-     * @param apellidoP
-     * @param apellidoM
-     * @param email
-     * @param password
+     * @param persona
      * @param fechaIngreso
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Editor(String nombre, String apellidoP, String apellidoM, String email, String password, Date fechaIngreso,
+    public Editor(Persona persona, Date fechaIngreso,
             String institucionProcedencia, int numeroEmpleado) {
-        super(nombre, apellidoP, apellidoM, email, password, fechaIngreso, institucionProcedencia, numeroEmpleado);
+        super(persona, fechaIngreso, institucionProcedencia, numeroEmpleado);
 
     }
 

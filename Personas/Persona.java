@@ -44,11 +44,17 @@ public class Persona implements Serializable {
     /***********************************
     *          CONSTRUCTORES           *
     ************************************/
+
     /**
-     * 
+     * Constructor llamado al momento de registrar algún empleado o suscriptor.
+     * @param persona
      */
-    public Persona () {
-        
+    public Persona(Persona persona) {
+        this.nombre = persona.getNombre();
+        this.apellidoP = persona.getApellidoP();
+        this.apellidoM = persona.getApellidoM();
+        this.email = persona.getEmail();
+        this.password = persona.getPassword();
     }
 
     /**

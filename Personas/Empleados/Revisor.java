@@ -11,6 +11,7 @@ package Personas.Empleados;
 import java.io.Serializable;
 import java.util.Date;
 import PatronVisitor.*;
+import Personas.Persona;
 
 /**
  * 
@@ -41,26 +42,14 @@ public class Revisor extends Empleado implements Serializable,Visitable {
 
     /**
      * 
-     */
-    public Revisor () {
-
-    }
-
-
-    /**
-     * 
-     * @param nombre
-     * @param apellidoP
-     * @param apellidoM
-     * @param email
-     * @param password
+     * @param persona
      * @param fechaIngreso
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Revisor(String nombre, String apellidoP, String apellidoM, String email, String password, Date fechaIngreso,
+    public Revisor(Persona persona, Date fechaIngreso,
             String institucionProcedencia, int numeroEmpleado) {
-        super(nombre, apellidoP, apellidoM, email, password, fechaIngreso, institucionProcedencia, numeroEmpleado);
+        super(persona, fechaIngreso, institucionProcedencia, numeroEmpleado);
     }
 
 

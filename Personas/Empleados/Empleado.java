@@ -41,25 +41,14 @@ public class Empleado extends Persona implements Serializable, Visitable{
 
     /**
      * 
-     */
-    public Empleado () {
-
-    }
-
-    /**
-     * 
-     * @param nombre
-     * @param apellidoP
-     * @param apellidoM
-     * @param email
-     * @param password
+     * @param persona
      * @param fechaIngreso
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Empleado(String nombre, String apellidoP, String apellidoM, String email, String password, Date fechaIngreso, 
+    public Empleado(Persona persona, Date fechaIngreso, 
                     String institucionProcedencia, int numeroEmpleado) {
-        super(nombre, apellidoP, apellidoM, email, password);
+        super(persona);
         this.fechaIngreso = fechaIngreso;
         this.institucionProcedencia = institucionProcedencia;
         this.numeroEmpleado = numeroEmpleado;
@@ -118,7 +107,7 @@ public class Empleado extends Persona implements Serializable, Visitable{
         this.institucionProcedencia = institucionProcedencia;
     }
     
-    ublic void aceptar(Visitor visitor){
+    public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
 }

@@ -68,12 +68,14 @@ public class Start {
                     Inicia el proceso de autenticación del usuario.
                 */
                 // Login()
+                // Si se logra el login, retornará a la persona que esté usando el sistema.
                 break;
             case 2:
                 /*
                     Comienza el proceso de registro de un suscriptor.
                 */
                 // Register()
+                // Si se logró registrar correctamente realizará un inicio de sesión automático para seguir.
                 break;
             case 3:
                 /*
@@ -90,7 +92,7 @@ public class Start {
                      - 2. Iniciar sesión.
                      - 3. Salir del programa.
                 */
-                
+                // Ya que es un invitado, no se requiere indicar qué persona está utilizando el sistema.
                 break;
             case 4:
                 /*

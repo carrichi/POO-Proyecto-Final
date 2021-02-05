@@ -1,7 +1,7 @@
 /*********************************************
 *          PAQUETE CORRESPONDIENTE           *
 **********************************************/
-package Personas.Subscriptores;
+package Personas.Suscriptores;
 
 /**************************************
 *          CLASES DE APOYO            *
@@ -16,7 +16,7 @@ import PatronVisitor.*;
 /**
  * 
  */
-public class Subscriptor extends Persona implements Visitable,Serializable{
+public class Suscriptor extends Persona implements Visitable, Serializable {
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
@@ -32,15 +32,11 @@ public class Subscriptor extends Persona implements Visitable,Serializable{
 
     /**
      * 
-     * @param nombre
-     * @param apellidoP
-     * @param apellidoM
-     * @param email
-     * @param password
+     * @param persona
      * @param suscripcion
      */
-    public Subscriptor(String nombre, String apellidoP, String apellidoM, String email, String password, Date suscripcion) {
-        super(nombre, apellidoP, apellidoM, email, password);
+    public Suscriptor(Persona persona, Date suscripcion) {
+        super(persona);
         this.setSuscripcion(suscripcion);
     }
 

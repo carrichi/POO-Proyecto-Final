@@ -4,7 +4,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import Personas.Empleados.*;
-import Personas.Subscriptores.*;
+import Personas.Suscriptores.*;
+
 import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class ArchivoVisitor implements Visitor{
         }
 	}
 	
-	public void visit(Subscriptor sub){
+	public void visit(Suscriptor sub){
 		ObjectOutputStream file;
 		try {
             file = new ObjectOutputStream(new FileOutputStream("Subscritores.ser"));
