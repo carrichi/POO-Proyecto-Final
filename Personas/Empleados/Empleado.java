@@ -10,16 +10,21 @@ package Personas.Empleados;
 // import java.text.ParseException;
 import java.util.Date;
 import Personas.Persona;
-import java.io.Serializable;
 import PatronVisitor.*;
 
 /**
  * 
  */
-public class Empleado extends Persona implements Serializable, Visitable{
+public class Empleado extends Persona implements Visitable {
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     /**
      * 
      */
@@ -46,14 +51,12 @@ public class Empleado extends Persona implements Serializable, Visitable{
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Empleado(Persona persona, Date fechaIngreso, 
-                    String institucionProcedencia, int numeroEmpleado) {
+    public Empleado(Persona persona, Date fechaIngreso, String institucionProcedencia, int numeroEmpleado) {
         super(persona);
         this.fechaIngreso = fechaIngreso;
         this.institucionProcedencia = institucionProcedencia;
         this.numeroEmpleado = numeroEmpleado;
     }
-
 
     /******************************************
     *          METODOS DE INSTANCIA           *
@@ -107,6 +110,11 @@ public class Empleado extends Persona implements Serializable, Visitable{
         this.institucionProcedencia = institucionProcedencia;
     }
     
+    /**
+     * 
+     * @param visitor
+     */
+    @Override
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}

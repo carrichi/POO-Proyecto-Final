@@ -22,7 +22,6 @@ import PatronVisitor.*;
  * administracion.
  */
 public class Start {
-
     /**
      * Hace referencia al usuario que haya ejecutado el programa y ya que es una clase padre
      * puede optar por ser un empleado, un suscriptor, un invidado o hasta el director de la
@@ -69,6 +68,8 @@ public class Start {
                 */
                 // Login()
                 // Si se logra el login, retornará a la persona que esté usando el sistema.
+                usuario = Menu.inicioSesion();
+
                 break;
             case 2:
                 /*
@@ -128,37 +129,6 @@ public class Start {
         */
 
         while ( ! exit ) {
-            /*
-                Esto es una prueba de funcionamiento para que funcione como una "base de datos".
-            */
-            File database = new File("database/database.txt");
-            if (database.exists()) {
-                ArrayList<Revista> revistas = new ArrayList<Revista>();
-                revistas.add(new Revista("1"));
-                revistas.add(new Revista("2"));
-                revistas.add(new Revista("3"));
-                revistas.add(new Revista("4"));
-    
-                FileInputStream fis = new FileInputStream(database);
-                
-                FileOutputStream fos = new FileOutputStream(database);
-
-                ObjectOutputStream oos = new ObjectOutputStream(fos);
-                oos.writeObject(revistas);
-                oos.close();
-                
-                ObjectInputStream ois = new ObjectInputStream(fis);
-    
-                ArrayList<Revista> revistas2 = (ArrayList<Revista>) ois.readObject();
-    
-                for (Revista revista : revistas2) {
-                    System.out.println(revista.toString());
-                }
-                ois.close();
-            } else {
-                System.out.println("Upsi");
-            }
-
             exit = true;
         }
          /*  PRUEBA DE VISITOR

@@ -8,7 +8,6 @@ package Personas.Empleados;
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
-import java.io.Serializable;
 import java.util.Date;
 import PatronVisitor.*;
 import Personas.Persona;
@@ -16,15 +15,16 @@ import Personas.Persona;
 /**
  * 
  */
-public class Revisor extends Empleado implements Serializable,Visitable {
+public class Revisor extends Empleado implements Visitable {
+    /********************************************
+    *          ATRIBUTOS DE INSTANCIA           *
+    *********************************************/
+
     /**
      *
      */
     private static final long serialVersionUID = 1L;
 
-    /********************************************
-     * ATRIBUTOS DE INSTANCIA *
-     *********************************************/
     /**
      * 
      */
@@ -90,6 +90,10 @@ public class Revisor extends Empleado implements Serializable,Visitable {
         this.aniosExperencia = aniosExperencia;
     }
     
+    /**
+     * 
+     */
+    @Override
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
