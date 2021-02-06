@@ -267,12 +267,9 @@ public class AccesoBD {
     }
     
     /**
-    * 
-    * @return
-    * @throws FileNotFoundException
-    * @throws IOException
-    * @throws ClassNotFoundException
-    */
+     * 
+     * @return
+     */
     public static ArrayList<Revista> buscarRevistas() {
         return null;
     }
@@ -327,8 +324,11 @@ public class AccesoBD {
     }
     
     /**
-    * 
-    */
+     * 
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public void guardarCambios() throws FileNotFoundException, IOException, ClassNotFoundException {
         FileOutputStream[] fos = {
             new FileOutputStream(this.empleadosBD), 

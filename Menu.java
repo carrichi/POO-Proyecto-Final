@@ -31,38 +31,20 @@ public class Menu {
 	* 
 	* @return
 	*/
-	public int bienvenida() {
+	public void bienvenida() {
 		// AL momento de la bienvenida lo que se realizará será inicializar la "base de datos".
 		this.database = new AccesoBD();
 		System.out.println(" \n\tBIENVENIDO AL SISTEMA DE ADMINISTRACION\n");
-
-		// System.out.println(" 1. Iniciar sesion");
-		// System.out.println(" 2. Registrarse como suscriptor");
-		// System.out.println(" 3. Continuar como invitado");
-		// System.out.println(" 4. Salir ");
-		// System.out.print(" > ");
-		// int opcion = sc.nextInt();
-		// sc.nextLine();
-		// if (opcion==1 || opcion==2 || opcion==3 || opcion==4) {
-		// 	return opcion;
-		// }else {
-		// 	System.out.println("\nAl parecer no elegiste una opcion correcta, intenta otra vez.");
-		// 	bienvenida();
-		// }
-		// En teoría no se alcanza a este -1 si es recursivo.
-		return -1;
 	}
 	
 	/**
 	* Método dedicado a proporcionar el inicio de sesión en el que estará integrada una verificación la cual
 	* funciona mediante búsquedas. 
 	* @return Retorna una instancia de tipo Persona porque al ser la clase padre de cualquier usuario hace que 
-	* pueda comportarse como un empleado, director, editor, suscriptor, etc. 
+	* pueda comportarse como un empleado, director, editor, suscriptor, etc.
 	*/
 	public void inicioSesion() {
-		System.out.println("###################################");
-		System.out.println("# INCIO DE SESION #");
-		System.out.println("###################################");
+		System.out.println("\t----- INCIO DE SESION -----");
 		
 		System.out.println(" Ingresa tu correo");
 		String email = sc.nextLine();
@@ -91,7 +73,7 @@ public class Menu {
 			}
 		} else {
 			System.out.println(" El inicio de sesion a fallado, el correo o la contrasena son incorrectos.");
-			Start.usuarioActivo = new Persona();
+			Start.usuarioActivo = null;
 		}
 	}
 	
@@ -99,7 +81,7 @@ public class Menu {
 	* @param sub Suscriptor a registrar
 	*/
 	public void registrarSuscriptor(){
-		System.out.println(" \tREGISTRAR NUEVO SUSCRIPTOR\n Ingresa los siguientes datos");
+		System.out.println("\t----- REGISTRAR NUEVO SUSCRIPTOR -----\n Ingresa los siguientes datos");
 		System.out.print(" Nombre : ");
 		String nom = sc.nextLine();
 		System.out.print(" Apellido Paterno : ");
@@ -114,7 +96,7 @@ public class Menu {
 				System.out.println(" El correo esta disponible! Sigamos.");
 				break;
 			} else {
-				System.out.println(" El correo que proporcionaste ya esta en uso ):");
+				System.out.println(" El correo que proporcionaste ya esta en uso!!!");
 			}
 		}
 		
@@ -123,7 +105,7 @@ public class Menu {
 		String password = new String(p);
 		System.out.println("Datos ingresados:\nEmail: "+email+"\nContrasena: "+password);
 		/*
-		Debe generarse la fecha de registro.
+			Debe generarse la fecha de registro.
 		*/
 		String suscripcion = this.fecha.get(Calendar.YEAR)+ "/" + (int)(this.fecha.get(Calendar.MONTH)+ 1) + "/" + this.fecha.get(Calendar.DAY_OF_MONTH);
 		
@@ -156,7 +138,7 @@ public class Menu {
 				System.out.println(" El correo esta disponible! Sigamos.");
 				break;
 			} else {
-				System.out.println(" El correo que proporcionaste ya esta en uso ):");
+				System.out.println(" El correo que proporcionaste ya esta en uso!!!");
 			}
 		}
 		
@@ -224,7 +206,9 @@ public class Menu {
 	public boolean menuDirector(){
 		boolean salir = false;
 		do {
-			System.out.println("DIRECTOR");
+			System.out.println("#####################################");
+			System.out.println("#       Sesion actual: DIRECTOR     #");
+			System.out.println("#####################################");
 			System.out.println(" Selecciona una opcion :");
 			System.out.println("  1. Registrar un empleado");
 			System.out.println("  2. Publicar revista");
@@ -240,8 +224,9 @@ public class Menu {
 			switch(opcion) {
 				case 1: 
 				/*
-				Registrar un empleado
+					Registrar un empleado
 				*/
+				System.out.println("\t----- Registro de un empleado -----");
 				break;
 				case 2: 
 				/*
@@ -298,7 +283,9 @@ public class Menu {
 	public boolean menuAutor(){
 		boolean salir = false;
 		do {
-			System.out.println("AUTOR");
+			System.out.println("#####################################");
+			System.out.println("#       Sesion actual: AUTOR        #");
+			System.out.println("#####################################");
 			System.out.println(" Selecciona una opcion :");
 			System.out.println("  1. Crear articulo.");
 			System.out.println("  2. Consultar un empleado (mediante número de empleado)");
@@ -366,7 +353,9 @@ public class Menu {
 	public boolean menuEditor(){
 		boolean salir = false;
 		do {
-			System.out.println("EDITOR");
+			System.out.println("#####################################");
+			System.out.println("#       Sesion actual: EDITOR       #");
+			System.out.println("#####################################");
 			System.out.println(" Selecciona una opcion :");
 			System.out.println("  1. Confirmar articulo");
 			System.out.println("  2. Consultar un empleado (mediante número de empleado)");
@@ -434,7 +423,9 @@ public class Menu {
 	public boolean menuRevisor(){
 		boolean salir = false;
 		do {
-			System.out.println("REVISOR");
+			System.out.println("#####################################");
+			System.out.println("#       Sesion actual: REVISOR      #");
+			System.out.println("#####################################");
 			System.out.println(" Selecciona una opcion :");
 			System.out.println("  1. Revisar artículo");
 			System.out.println("  2. Consultar un empleado (mediante número de empleado)");
@@ -502,7 +493,9 @@ public class Menu {
 	public boolean menuSuscriptor(){
 		boolean salir = false;
 		do {
-			System.out.println("SUSCRIPTOR");
+			System.out.println("#########################################");
+			System.out.println("#       Sesion actual: SUSCRIPTOR       #");
+			System.out.println("#########################################");
 			System.out.println(" Selecciona una opcion :");
 			System.out.println(" 1. Consultar revista (mediante numero de revista)");
 			System.out.println(" 2. Consultar articulo (mediante folio)");
@@ -558,7 +551,9 @@ public class Menu {
 	public boolean menuInvitado() {
 		boolean salir = false;
 		do {
-			System.out.println("INVITADO");
+			System.out.println("#####################################");
+			System.out.println("#       Sesion actual: INVITADO     #");
+			System.out.println("#####################################");
 			System.out.println(" Selecciona una opcion :");
 			System.out.println(" 1. Iniciar sesion");
 			System.out.println(" 2. Registrarse como suscriptor");
