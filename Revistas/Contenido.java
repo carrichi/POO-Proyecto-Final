@@ -22,6 +22,8 @@ public class Contenido implements Serializable {
      */
     private static final long serialVersionUID = 1L;
     
+    /** Lista de categorias del contenido
+    */
     private ArrayList<Categoria> categorias;
 
     /**
@@ -31,11 +33,17 @@ public class Contenido implements Serializable {
     public Contenido() {
 
     }
-
+    
+    /** Regresa la lista de categorias 
+    * @return categorias
+    */
     public ArrayList<Categoria> getCategorias() {
         return categorias;
     }
 
+        /** Guarda la lista de categorias
+        * @param categorias
+        */
     public void setCategorias(ArrayList<Categoria> categorias) {
         this.categorias = categorias;
     }
