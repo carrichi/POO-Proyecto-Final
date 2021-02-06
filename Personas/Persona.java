@@ -8,7 +8,7 @@ package Personas;
 ***************************************/
 import java.io.Serializable;
 
-/**
+/**Esta clase se utiliza como ancestro para todos los usuarios del programa
  * 
  */
 public class Persona implements Serializable {
@@ -22,31 +22,31 @@ public class Persona implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 
+     * Nombre o nombres de (this) Persona
      */
     private String nombre;
 
     /**
-     * 
+     * Apellido paterno de (this) Persona
      */
     private String apellidoP;
 
     /**
-     * 
+     * Apellido materno de (this) Persona
      */
     private String apellidoM;
     /**
-     * 
+     * Correo electronico de (this) Persona
      */
     private String email;
 
     /**
-     * 
+     * Contraseña de la cuenta de (this) Persona
      */
     private String password;
 
     /**
-     * 
+     * Tipo de usuario
      */
     public String tipo;
 
@@ -54,7 +54,7 @@ public class Persona implements Serializable {
     *          CONSTRUCTORES           *
     ************************************/
 
-    /**
+    /** Constructor vacio, que registra al usuario con el tipo por defecto "Invitado"
      * 
      */
     public Persona() {
@@ -89,7 +89,7 @@ public class Persona implements Serializable {
      * 
      * @param nombre
      * @param apellidoP
-     * @param appellidoM
+     * @param apellidoM
      * @param email
      * @param password
      */
@@ -109,7 +109,7 @@ public class Persona implements Serializable {
 
     /**
      * 
-     * @return
+     * @return nombre
      */
     public String getNombre() {
         return nombre;
@@ -125,7 +125,7 @@ public class Persona implements Serializable {
 
     /**
      * 
-     * @return
+     * @return apellidoM
      */
     public String getApellidoM() {
         return apellidoM;
@@ -133,7 +133,7 @@ public class Persona implements Serializable {
 
     /**
      * 
-     * @param appellidoM
+     * @param apellidoM
      */
     public void setApellidoM(String apellidoM) {
         this.apellidoM = apellidoM;
@@ -141,7 +141,7 @@ public class Persona implements Serializable {
 
     /**
      * 
-     * @return
+     * @return apellidoP
      */
     public String getApellidoP() {
         return apellidoP;
@@ -157,7 +157,7 @@ public class Persona implements Serializable {
 
     /**
      * 
-     * @return
+     * @return email
      */
     public String getEmail() {
         return email;
@@ -173,7 +173,7 @@ public class Persona implements Serializable {
 
     /**
      * 
-     * @return
+     * @return password
      */
     public String getPassword() {
         return password;
@@ -188,7 +188,7 @@ public class Persona implements Serializable {
     }
 
     /**
-     * 
+     * @return "Invitado"
      */
     public String clase() {
         return "Invitado";
