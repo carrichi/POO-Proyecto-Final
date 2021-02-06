@@ -150,7 +150,6 @@ public class Busqueda {
         }
     }
 
-
     /**
      * 
      * @param email
@@ -162,8 +161,39 @@ public class Busqueda {
             Aquí es donde se realiza la verificación de que el usuario existe.  
         */
         Persona usuario = buscarUsuario(email);
-        return usuario;
+        if (usuario != null) {
+            // Se encontró el usuario, ahora debe verificarse la contraseña.
+            if (usuario.getPassword().equals(password)) {
+                return usuario;                
+            }
+        }
+        return null;
     }
+
+    /**
+     * 
+     * @param email
+     * @return
+     */
+    public boolean verificarEmail(String email) {
+        // System.out.println("### Estos son los correos de los empleados:");
+        for (Empleado empleado  : this.empleados) {
+            if (empleado.getEmail().equals(email)) {
+                return false;
+            }
+            // System.out.println(empleado.getEmail());
+        }
+        // System.out.println("### Estos son los correos de los suscriptores:");
+        for (Suscriptor suscriptor : this.suscriptores) {
+            if (suscriptor.getEmail().equals(email)) {
+                return false;
+            }
+            // System.out.println(suscriptor.getEmail());
+        }
+        // Si se llega hasta este return significa que es un email único.
+        return true;
+    }
+
     
     public Persona buscarUsuario(String email) {
         /*
@@ -171,13 +201,11 @@ public class Busqueda {
         */
         for (Empleado empleado : this.empleados) {
             if (empleado.getEmail().equals(email)) {
-                System.out.println("Usuario encontrado!");
                 return empleado;
             }
         }
         for (Suscriptor suscriptor : this.suscriptores) {
             if (suscriptor.getEmail().equals(email)) {
-                System.out.println("Usuario encontrado!");
                 return suscriptor;
             }
         }

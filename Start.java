@@ -26,6 +26,9 @@ import java.io.StringWriter;
  * administracion.
  */
 public class Start {
+
+    static Persona usuarioActivo = null;
+
     /**
      * Metodo que realiza el comienzo de todo el programa.
      * 
@@ -64,7 +67,7 @@ public class Start {
             puede optar por ser un empleado, un suscriptor, un invidado o hasta el director de la
             empresa. 
         */
-        Persona usuarioActivo = null;
+        // Persona usuarioActivo = null;
         switch (opcion) {
             case 1:
                 /*
@@ -72,7 +75,11 @@ public class Start {
                 */
                 // Login()
                 // Si se logra el login, retornará a la persona que esté usando el sistema.
-                usuarioActivo = menu.inicioSesion();
+                menu.inicioSesion();
+                // Entrará en este if si el usuario a decicido ya no iniciar sesión.
+                if (Start.usuarioActivo == null) {
+                    System.out.println("Tu sesion cambio a invitado.");
+                }
                 break;
             case 2:
                 /*
@@ -102,17 +109,6 @@ public class Start {
                 /*
                     La opción elegida fue SALIR.
                 */
-                System.out.println("Has decidido salir.");
-                // Thread.sleep(1800);
-                System.out.println("Guardando cambios...");
-                // Thread.sleep(2000);
-                System.out.println("Terminando sesion activa...");
-                // Thread.sleep(2000);
-                System.out.println("Desconectando base de datos...");
-                // Thread.sleep(4000);
-                System.out.println("Listo! Gracias por utilizar el sistema de administracion.");
-                // Thread.sleep(3000);
-                System.out.println("\n\n");
                 exit = true;
                 break;
             default:
@@ -131,9 +127,27 @@ public class Start {
             Este sera un ciclo que no terminara hasta que el usuario actual decida cerrar su sesión.
         */
         while ( ! exit ) {
-            System.out.println(usuarioActivo.getClass());
-            exit = true;
+            if (Start.usuarioActivo == null) {
+                System.out.println("Que deseas hacer? ");
+                exit = menu.menuInvitado();
+            } else {
+                System.out.print("Accediste como: ");
+                System.out.print(usuarioActivo.getClass());
+            }
         }
+
+        // La única forma de llegar a esta sección es eligiendo salir en alguno de los menús de usuario.
+        System.out.println("Has decidido salir.");
+        // Thread.sleep(1800);
+        System.out.println("Guardando cambios...");
+        // Thread.sleep(2000);
+        System.out.println("Terminando sesion activa...");
+        // Thread.sleep(2000);
+        System.out.println("Desconectando base de datos...");
+        // Thread.sleep(4000);
+        System.out.println("Listo! Gracias por utilizar el sistema de administracion.");
+        // Thread.sleep(3000);
+        System.out.println("\n\n");
 
          /*  PRUEBA DE VISITOR
         

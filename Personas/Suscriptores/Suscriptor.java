@@ -63,7 +63,16 @@ public class Suscriptor extends Persona implements Visitable{
         this.suscripcion = suscripcion;
     }
     
+    /**
+     * 
+     */
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
+
+    @Override
+    public String toString() {
+        return this.getClass().getName()+": "+this.getApellidoP()+" "+this.getApellidoM()+", "+this.getNombre()+".\n\tEmail: "+this.getEmail();
+    }
+
 }
