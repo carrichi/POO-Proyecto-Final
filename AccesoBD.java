@@ -229,12 +229,22 @@ public class AccesoBD {
         */
         for (Empleado empleado : this.empleados) {
             if (empleado.getEmail().equals(email)) {
-                return empleado;
+                if ( empleado.clase().equals(("Director")) ) {
+                    return (Empleado) empleado;
+                } else if (empleado.clase().equals(("Autor")) ){
+                    return (Autor) empleado;
+                } else if (empleado.clase().equals(("Editor"))) {
+                    return (Editor) empleado;
+                } else if (empleado.clase().equals("Revisor")) {
+                    return (Revisor) empleado;
+                }
             }
         }
         for (Suscriptor suscriptor : this.suscriptores) {
             if (suscriptor.getEmail().equals(email)) {
-                return suscriptor;
+                if (suscriptor.clase().equals(("Suscriptor"))){
+                    return (Suscriptor) suscriptor;
+                }
             }
         }
         return null;
