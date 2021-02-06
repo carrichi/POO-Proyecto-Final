@@ -12,7 +12,7 @@ import Personas.Persona;
 import PatronVisitor.*;
 
 /**
- * 
+ * Clase que hereda de Persona y proporciona metodos y atributos necesarios para un Empleado
  */
 public class Empleado extends Persona implements Visitable {
     /********************************************
@@ -25,16 +25,16 @@ public class Empleado extends Persona implements Visitable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 
+     * Fecha de ingreso a la revista
      */
     private String fechaIngreso;
     
     /**
-     * 
+     * Institucion de procedencia
      */
     private String institucionProcedencia;
     
-    /**
+    /**Numero de empleado
      * 
      */
     private int numeroEmpleado;
@@ -63,46 +63,46 @@ public class Empleado extends Persona implements Visitable {
     *          (Getters y Setters)            *
     *******************************************/
 
-    /**
+    /**Regresa la fecha de ingreso del Empleado
      * 
-     * @return
+     * @return fechaIngreso
      */
     public String getFechaIngreso() {
         return fechaIngreso;
     }
 
-    /**
-     * 
+   /**
+     * Guarda la fecha de ingreso del Empleado
      * @param fechaIngreso
      */
     public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }    
 
-    /**
-     * 
-     * @return
+   /**
+     * Regresa el numero del Empleado
+     * @return numeroEmpleado
      */
     public long getNumeroEmpleado() {
         return numeroEmpleado;
     }
 
     /**
-     * 
+     * Guarda el numero del Empleado
      * @param numeroEmpleado
      */
     public void setNumeroEmpleado(int numeroEmpleado) {
         this.numeroEmpleado = numeroEmpleado;
     }
 
-    /**
-     * 
+    /** Regresa la institucion de procedencia
+     *  @return institucionProcedencia
      */
     public String getInstitucionProcedencia() {
         return institucionProcedencia;
     }
 
-    /**
+    /**Guarda la institucion de procedencia
      * 
      * @param institucionProcedencia
      */
@@ -110,17 +110,16 @@ public class Empleado extends Persona implements Visitable {
         this.institucionProcedencia = institucionProcedencia;
     }
     
-    /**
-     * 
-     * @param visitor
+    /**Metodo que implementa el patron de diseño Visitor 
+     * @param visitor Visitor especifico
      */
     @Override
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
 
-    /**
-     * 
+       /**Tipo de usuario
+     * @return "Editor" Tipo de usuario
      */
     @Override
     public String clase() {
