@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 import Personas.Persona;
-import Personas.Empleados.*;
+// import Personas.Empleados.*;
 import Personas.Suscriptores.Suscriptor;
 
 /**
@@ -63,38 +63,26 @@ public class Menu {
 		System.out.println("# INCIO DE SESION #");
 		System.out.println("###################################");
 		
-		boolean salir = false;
-		do {
-			System.out.println(" Ingresa tu correo");
-			String email = sc.nextLine();
-			System.out.println(" Ingresa tu contrasena");
-			char[] p = System.console().readPassword();
-			String password = new String(p);
-			/*
-			Después de haber ingresado su correo y contraseña, ahora se pasa a un proceso de verificación
-			para saber si existe dicho usuario.
-			Si existe, retorna a la persona para que la clase Start trabaje con ella, si no existe, se vuelve
-			a llamar recursivamente al método "inicioSesion( )".
-			*/
-			Persona usuario = database.verificarInicioSesion(email, password);
-			if (usuario != null) {
-				System.out.println("Inicio de sesion exitoso!");
-				Start.usuarioActivo = usuario;
-				salir = true;
-			} else {
-				System.out.println(" El inicio de sesion a fallado, el correo o la contrasena son incorrectos.");
-				String continuar;
-				System.out.println(" Quieres volver a intentarlo? (Si/No)");
-				System.out.print(" > ");
-				continuar = sc.nextLine();
-				if (continuar.equals("Si")) {
-					salir = false;
-				} else {
-					salir = true;
-					Start.usuarioActivo = new Persona();
-				}
-			}
-		} while (! salir);
+		System.out.println(" Ingresa tu correo");
+		String email = sc.nextLine();
+		System.out.println(" Ingresa tu contrasena");
+		char[] p = System.console().readPassword();
+		String password = new String(p);
+		/*
+		Después de haber ingresado su correo y contraseña, ahora se pasa a un proceso de verificación
+		para saber si existe dicho usuario.
+		Si existe, retorna a la persona para que la clase Start trabaje con ella, si no existe, se vuelve
+		a llamar recursivamente al método "inicioSesion( )".
+		*/
+		Persona usuario = database.verificarInicioSesion(email, password);
+		if (usuario != null) {
+			System.out.println("Inicio de sesion exitoso!");
+			Start.usuarioActivo = usuario;
+			System.out.println("Saliste de Menu.inicioSecion()");
+		} else {
+			System.out.println(" El inicio de sesion a fallado, el correo o la contrasena son incorrectos.");
+			Start.usuarioActivo = new Persona();
+		}
 	}
 	
 	/** 
@@ -137,9 +125,6 @@ public class Menu {
 		Aquí inicia la parte del registro donde se añade a la base de datos.
 		*/
 		database.agregar((Suscriptor) Start.usuarioActivo);
-		
-		System.out.println("La sesion cambio a SUSCRIPTOR como: ");
-		System.out.println((Suscriptor) Start.usuarioActivo);
 	}
 	
 	/** 
@@ -200,31 +185,36 @@ public class Menu {
 	* 
 	*/
 	public boolean menuDirector(){
-		System.out.println(" Selecciona una opcion :");
-		System.out.println(" 1. Subir articulo para revision");
-		System.out.println(" 2. Consultar estado de articulo");
-		System.out.println(" 3. Consultar articulo");
-		System.out.println(" 4. Salir");
-		int opcion=sc.nextInt();
-		switch(opcion) {
-			case 1: 
-			System.out.println(" ");
-			
-			break;
-			case 2: 
-			
-			break;
-			default: 
-			System.out.println(" Opción incorrecta");
-			break;
-		}
-		return true;
+		boolean salir = false;
+		do {
+			System.out.println("DIRECTOR");
+			System.out.println(" Selecciona una opcion :");
+			System.out.println(" 1. Subir articulo para revision");
+			System.out.println(" 2. Consultar estado de articulo");
+			System.out.println(" 3. Consultar articulo");
+			System.out.println(" 4. Salir");
+			int opcion=sc.nextInt();
+			switch(opcion) {
+				case 1: 
+				System.out.println(" ");
+				
+				break;
+				case 2: 
+				
+				break;
+				default: 
+				System.out.println(" Opción incorrecta");
+				break;
+			}
+			return true;
+		} while (! salir);
 	}
 	
 	/** 
 	* Muestra el menú para el usuario Autor
 	*/
 	public boolean menuAutor(){
+		System.out.println("AUTOR");
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Subir articulo para revision");
 		System.out.println(" 2. Consultar estado de articulo");
@@ -243,7 +233,7 @@ public class Menu {
 			System.out.println(" Opción incorrecta");
 			break;
 		}
-
+		
 		return true;
 	}
 	
@@ -251,6 +241,7 @@ public class Menu {
 	* 
 	*/
 	public boolean menuEditor(){
+		System.out.println("EDITOR");
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Confirmar publicacion");
 		System.out.println(" 2. Consultar estado de articulo");
@@ -277,7 +268,7 @@ public class Menu {
 	* Muestra el menú para el usuario Revisor
 	*/
 	public boolean menuRevisor(){
-		System.out.println("\n\nERES UN SUSCRIPTOR!");
+		System.out.println("REVISOR");
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Revisar artículo");
 		System.out.println(" 2. Consultar estado de articulo");
@@ -296,7 +287,7 @@ public class Menu {
 			System.out.println(" Opción incorrecta");
 			break;
 		}
-
+		
 		return true;
 	}
 	
@@ -304,6 +295,7 @@ public class Menu {
 	* 
 	*/
 	public boolean menuSuscriptor(){
+		System.out.println("SUSCRIPTOR");
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Buscar revista (mediante numero de revista)");
 		System.out.println(" 2. Buscar articulo (mediante folio)");
@@ -326,16 +318,17 @@ public class Menu {
 			System.out.println(" Opción incorrecta");
 			break;
 		}
-
+		
 		return true;
 	}
 	
 	/**
 	* 
 	*/
-	public boolean menuInvitado(){
+	public boolean menuInvitado() {
 		boolean salir = false;
 		do {
+			System.out.println("INVITADO");
 			System.out.println(" Selecciona una opcion :");
 			System.out.println(" 1. Iniciar sesion");
 			System.out.println(" 2. Registrarse");

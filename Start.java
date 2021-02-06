@@ -57,8 +57,6 @@ public class Start {
             /*
             Inicia el proceso de autenticación del usuario.
             */
-            // Login()
-            // Si se logra el login, retornará a la persona que esté usando el sistema.
             menu.inicioSesion();
             break;
             case 2:
@@ -107,6 +105,7 @@ public class Start {
         Este sera un ciclo que no terminara hasta que el usuario actual decida cerrar su sesión.
         */
         while ( ! exit ) {
+            System.out.println("Entraste al primer Start");
             System.out.print("Accediste como: ");
             if ( Start.usuarioActivo.clase().equals(("Director")) ) {
                 System.out.println("DIRECTOR");
@@ -127,12 +126,14 @@ public class Start {
                 System.out.println("INVITADO");
                 exit = menu.menuInvitado();
             }
+            System.out.println("Terminó el primer start");
         }
         
         // La única forma de llegar a esta sección es eligiendo salir en alguno de los menús de usuario.
         System.out.println("\nHas decidido salir.");
         // Thread.sleep(1800);
         System.out.println("Guardando cambios...");
+        menu.database.guardarCambios();
         // Thread.sleep(2000);
         System.out.println("Terminando sesion activa...");
         // Thread.sleep(2000);
