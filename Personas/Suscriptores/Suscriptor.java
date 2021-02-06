@@ -76,4 +76,12 @@ public class Suscriptor extends Persona implements Visitable{
         return this.getClass().getName()+": "+this.getApellidoP()+" "+this.getApellidoM()+", "+this.getNombre()+".\n\tEmail: "+this.getEmail();
     }
 
+    /**
+     * 
+     */
+    @Override
+    public String clase() {
+        return "Suscriptor";
+    }
+
 }

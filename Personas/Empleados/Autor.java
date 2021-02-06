@@ -70,4 +70,12 @@ public class Autor extends Empleado{
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
+
+    /**
+     * 
+     */
+    @Override
+    public String clase() {
+        return "Autor";
+    }
 }

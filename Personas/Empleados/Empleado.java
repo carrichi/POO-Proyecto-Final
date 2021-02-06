@@ -118,4 +118,12 @@ public class Empleado extends Persona implements Visitable {
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
+
+    /**
+     * 
+     */
+    @Override
+    public String clase() {
+        return "Director";
+    }
 }

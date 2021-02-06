@@ -91,6 +91,7 @@ public class Menu {
 					salir = false;
 				} else {
 					salir = true;
+					Start.usuarioActivo = new Persona();
 				}
 			}
 		} while (! salir);
@@ -130,16 +131,15 @@ public class Menu {
 		
 		System.out.println("Esta todo listo para tu registro!");
 		
-		Suscriptor suscriptor = new Suscriptor(new Persona(nom, aP, aM, email, password),suscripcion);
+		Start.usuarioActivo = new Suscriptor(new Persona(nom, aP, aM, email, password),suscripcion);
 		
 		/*
 		Aquí inicia la parte del registro donde se añade a la base de datos.
 		*/
-		database.agregar(suscriptor);
+		database.agregar((Suscriptor) Start.usuarioActivo);
 		
 		System.out.println("La sesion cambio a SUSCRIPTOR como: ");
-		System.out.println(suscriptor);
-		Start.usuarioActivo = suscriptor;
+		System.out.println((Suscriptor) Start.usuarioActivo);
 	}
 	
 	/** 
@@ -199,7 +199,7 @@ public class Menu {
 	/**
 	* 
 	*/
-	public void menuDirector(){
+	public boolean menuDirector(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Subir articulo para revision");
 		System.out.println(" 2. Consultar estado de articulo");
@@ -218,12 +218,13 @@ public class Menu {
 			System.out.println(" Opción incorrecta");
 			break;
 		}
+		return true;
 	}
 	
 	/** 
 	* Muestra el menú para el usuario Autor
 	*/
-	public void menuAutor(){
+	public boolean menuAutor(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Subir articulo para revision");
 		System.out.println(" 2. Consultar estado de articulo");
@@ -242,12 +243,14 @@ public class Menu {
 			System.out.println(" Opción incorrecta");
 			break;
 		}
+
+		return true;
 	}
 	
 	/**
 	* 
 	*/
-	public void menuEditor(){
+	public boolean menuEditor(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Confirmar publicacion");
 		System.out.println(" 2. Consultar estado de articulo");
@@ -267,12 +270,13 @@ public class Menu {
 			break;
 		}
 		
+		return true;
 	}
 	
 	/**
 	* Muestra el menú para el usuario Revisor
 	*/
-	public void menuRevisor(){
+	public boolean menuRevisor(){
 		System.out.println("\n\nERES UN SUSCRIPTOR!");
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Revisar artículo");
@@ -292,12 +296,14 @@ public class Menu {
 			System.out.println(" Opción incorrecta");
 			break;
 		}
+
+		return true;
 	}
 	
 	/**
 	* 
 	*/
-	public void menuSuscriptor(){
+	public boolean menuSuscriptor(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Buscar revista (mediante numero de revista)");
 		System.out.println(" 2. Buscar articulo (mediante folio)");
@@ -320,6 +326,8 @@ public class Menu {
 			System.out.println(" Opción incorrecta");
 			break;
 		}
+
+		return true;
 	}
 	
 	/**

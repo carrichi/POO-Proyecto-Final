@@ -48,11 +48,18 @@ public class Persona implements Serializable {
     /**
      * 
      */
-    public String tipo = "Persona";
+    public String tipo;
 
     /***********************************
     *          CONSTRUCTORES           *
     ************************************/
+
+    /**
+     * 
+     */
+    public Persona() {
+        this.tipo = "Invitado";
+    }
 
     /**
      * Constructor llamado al momento de registrar algún empleado o suscriptor.
@@ -64,6 +71,7 @@ public class Persona implements Serializable {
         this.apellidoM = persona.getApellidoM();
         this.email = persona.getEmail();
         this.password = persona.getPassword();
+        this.tipo = "Invitado";
     }
 
     /**
@@ -74,6 +82,7 @@ public class Persona implements Serializable {
     public Persona(String email, String password) {
         this.email = email;
         this.password = password;
+        this.tipo = "Invitado";
     }
 
     /**
@@ -182,6 +191,6 @@ public class Persona implements Serializable {
      * 
      */
     public String clase() {
-        return this.tipo;
+        return "Invitado";
     }
 }

@@ -111,12 +111,11 @@ public class Editor extends Empleado{
 		visitor.visit(this);
 	}
 	
-	/*public void mostrar(){
-		System.out.println(this.getNombre());
-		System.out.println(this.getApellidoM());
-		System.out.println(this.getEmail());
-		System.out.println(this.numeroCedula);
-		System.out.println(this.maestriaDoctorado);
-		System.out.println(this.getNumeroEmpleado());
-	}*/
+    /**
+     * 
+     */
+    @Override
+    public String clase() {
+        return "Editor";
+    }
 }

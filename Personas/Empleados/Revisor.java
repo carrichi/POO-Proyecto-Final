@@ -96,4 +96,12 @@ public class Revisor extends Empleado{
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
+
+    /**
+     * 
+     */
+    @Override
+    public String clase() {
+        return "Revisor";
+    }
 }
