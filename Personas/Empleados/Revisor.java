@@ -46,9 +46,9 @@ public class Revisor extends Empleado{
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Revisor(Persona persona, String fechaIngreso,
-            String institucionProcedencia, int numeroEmpleado) {
+    public Revisor(Persona persona, String fechaIngreso, String institucionProcedencia, int numeroEmpleado) {
         super(persona, fechaIngreso, institucionProcedencia, numeroEmpleado);
+        this.tipo = "Revisor";
     }
 
 

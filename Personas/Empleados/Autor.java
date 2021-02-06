@@ -40,9 +40,9 @@ public class Autor extends Empleado{
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Autor(Persona persona, String fechaIngreso, 
-                 String institucionProcedencia, int numeroEmpleado) {
+    public Autor(Persona persona, String fechaIngreso, String institucionProcedencia, int numeroEmpleado) {
         super(persona, fechaIngreso, institucionProcedencia, numeroEmpleado);
+        this.tipo = "Autor";
     }
 
 

@@ -45,6 +45,10 @@ public class Persona implements Serializable {
      */
     private String password;
 
+    /**
+     * 
+     */
+    public String tipo = "Persona";
 
     /***********************************
     *          CONSTRUCTORES           *
@@ -172,5 +176,12 @@ public class Persona implements Serializable {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * 
+     */
+    public String clase() {
+        return this.tipo;
     }
 }

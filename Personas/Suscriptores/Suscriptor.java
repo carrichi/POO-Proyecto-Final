@@ -39,6 +39,7 @@ public class Suscriptor extends Persona implements Visitable{
     public Suscriptor(Persona persona, String suscripcion) {
         super(persona);
         this.setSuscripcion(suscripcion);
+        this.tipo = "Suscriptor";
     }
 
     

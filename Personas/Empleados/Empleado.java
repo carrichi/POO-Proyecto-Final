@@ -55,6 +55,7 @@ public class Empleado extends Persona implements Visitable {
         this.fechaIngreso = fechaIngreso;
         this.institucionProcedencia = institucionProcedencia;
         this.numeroEmpleado = numeroEmpleado;
+        this.tipo = "Director";
     }
 
     /******************************************

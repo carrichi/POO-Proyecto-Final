@@ -2,23 +2,8 @@
 *          CLASES DE APOYO            *
 ***************************************/
 import Personas.Persona;
-import PatronVisitor.*;
+// import PatronVisitor.*;
 import java.io.IOException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import Revistas.Articulo;
-import Revistas.Categoria;
-import Revistas.Revista;
-import Personas.Empleados.*;
-import Personas.Suscriptores.Suscriptor;
-import Personas.*;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 
 /**
  * Esta es la clase que realizara la ejecucion de todo el sistema de
@@ -127,12 +112,29 @@ public class Start {
                 exit = menu.menuInvitado();
             } else {
                 System.out.print("Accediste como: ");
-                System.out.print(usuarioActivo.getClass());
+                System.out.print(usuarioActivo.getClass().getName());
+                if ( Start.usuarioActivo.clase().equals(("Director")) ) {
+                    System.out.println("Eres un empleado!");
+                    menu.menuDirector();
+                } else if ( Start.usuarioActivo.clase().equals(("Autor")) ){
+                    System.out.println("Eres un autor");
+                    menu.menuAutor();
+                } else if (Start.usuarioActivo.clase().equals(("Editor"))) {
+                    System.out.println("Eres un editor");
+                    menu.menuEditor();
+                } else if (Start.usuarioActivo.clase().equals("Revisor")) {
+                    System.out.println("Eres un revistor");
+                    menu.menuRevisor();
+                } else if (usuarioActivo.clase().equals(("Suscriptor"))){
+                    System.out.println("Eres un suscriptor!");
+                    menu.menuSuscriptor();
+                }
+                exit = true;
             }
         }
 
         // La única forma de llegar a esta sección es eligiendo salir en alguno de los menús de usuario.
-        System.out.println("Has decidido salir.");
+        System.out.println("\nHas decidido salir.");
         // Thread.sleep(1800);
         System.out.println("Guardando cambios...");
         // Thread.sleep(2000);

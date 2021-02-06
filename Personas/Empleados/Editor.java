@@ -51,10 +51,9 @@ public class Editor extends Empleado{
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Editor(Persona persona, String fechaIngreso,
-            String institucionProcedencia, int numeroEmpleado) {
+    public Editor(Persona persona, String fechaIngreso, String institucionProcedencia, int numeroEmpleado) {
         super(persona, fechaIngreso, institucionProcedencia, numeroEmpleado);
-
+        this.tipo = "Editor";
     }
 
     /********************************************

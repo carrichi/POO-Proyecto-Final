@@ -18,15 +18,15 @@ public class Menu {
 	static Scanner sc = new Scanner(System.in);
 	
 	/**
-	 * 
-	 */
+	* 
+	*/
 	public AccesoBD database;	
 	
 	/**
-	 * 
-	 */
+	* 
+	*/
 	public Calendar fecha = new GregorianCalendar();
-
+	
 	/**
 	* 
 	* @return
@@ -59,55 +59,55 @@ public class Menu {
 	* pueda comportarse como un empleado, director, editor, suscriptor, etc. 
 	*/
 	public void inicioSesion() {
-		String email;
 		System.out.println("###################################");
 		System.out.println("# INCIO DE SESION #");
 		System.out.println("###################################");
-		System.out.println(" Ingresa tu correo");
-		email = sc.nextLine();
-		System.out.println(" Ingresa tu contrasena");
-		char[] p = System.console().readPassword();
-		String psswrd = new String(p);
-		/*
-		Después de haber ingresado su correo y contraseña, ahora se pasa a un proceso de verificación
-		para saber si existe dicho usuario.
-		Si existe, retorna a la persona para que la clase Start trabaje con ella, si no existe, se vuelve
-		a llamar recursivamente al método "inicioSesion( )".
-		*/
-		Persona usuario = database.verificarInicioSesion(email, psswrd);
-		if (usuario != null) {
-			System.out.println("Inicio de sesion exitoso!");
-			Start.usuarioActivo = usuario;
-		} else {
-			System.out.println(" El inicio de sesion a fallado, el correo o la contrasena son incorrectos.");
-			String continuar;
-			do {
+		
+		boolean salir = false;
+		do {
+			System.out.println(" Ingresa tu correo");
+			String email = sc.nextLine();
+			System.out.println(" Ingresa tu contrasena");
+			char[] p = System.console().readPassword();
+			String password = new String(p);
+			/*
+			Después de haber ingresado su correo y contraseña, ahora se pasa a un proceso de verificación
+			para saber si existe dicho usuario.
+			Si existe, retorna a la persona para que la clase Start trabaje con ella, si no existe, se vuelve
+			a llamar recursivamente al método "inicioSesion( )".
+			*/
+			Persona usuario = database.verificarInicioSesion(email, password);
+			if (usuario != null) {
+				System.out.println("Inicio de sesion exitoso!");
+				Start.usuarioActivo = usuario;
+				salir = true;
+			} else {
+				System.out.println(" El inicio de sesion a fallado, el correo o la contrasena son incorrectos.");
+				String continuar;
 				System.out.println(" Quieres volver a intentarlo? (Si/No)");
 				System.out.print(" > ");
 				continuar = sc.nextLine();
-			}while(! ( continuar.equals("Si") || continuar.equals("No")) );
-			
-			if (continuar.equals("Si")) {
-				inicioSesion();
-			} else {
-				System.out.println("Su sesion ha cambiado a invitado.");
+				if (continuar.equals("Si")) {
+					salir = false;
+				} else {
+					salir = true;
+				}
 			}
-		}
+		} while (! salir);
 	}
 	
 	/** 
 	* @param sub Suscriptor a registrar
 	*/
 	public void registrarSuscriptor(){
-		String aP, aM, nom, email;
 		System.out.println(" \tREGISTRAR NUEVO SUSCRIPTOR\n Ingresa los siguientes datos");
 		System.out.print(" Nombre : ");
-		nom = sc.nextLine();
+		String nom = sc.nextLine();
 		System.out.print(" Apellido Paterno : ");
-		aP = sc.nextLine();
+		String aP = sc.nextLine();
 		System.out.print(" Apellido Materno : ");
-		aM = sc.nextLine();
-
+		String aM = sc.nextLine();
+		String email;
 		while (true) {
 			System.out.print(" Email : ");
 			email = sc.nextLine();
@@ -121,22 +121,22 @@ public class Menu {
 		
 		System.out.print(" Contrasena : ");
 		char[] p = System.console().readPassword();
-		String psswrd = new String(p);
-		System.out.println("Datos ingresados:\nEmail: "+email+"\nContrasena: "+psswrd);
+		String password = new String(p);
+		System.out.println("Datos ingresados:\nEmail: "+email+"\nContrasena: "+password);
 		/*
-			Debe generarse la fecha de registro.
+		Debe generarse la fecha de registro.
 		*/
 		String suscripcion = this.fecha.get(Calendar.YEAR)+ "/" + (int)(this.fecha.get(Calendar.MONTH)+ 1) + "/" + this.fecha.get(Calendar.DAY_OF_MONTH);
 		
 		System.out.println("Esta todo listo para tu registro!");
-
-		Suscriptor suscriptor = new Suscriptor(new Persona(nom, aP, aM, email, psswrd),suscripcion);
-
+		
+		Suscriptor suscriptor = new Suscriptor(new Persona(nom, aP, aM, email, password),suscripcion);
+		
 		/*
-			Aquí inicia la parte del registro donde se añade a la base de datos.
+		Aquí inicia la parte del registro donde se añade a la base de datos.
 		*/
 		database.agregar(suscriptor);
-
+		
 		System.out.println("La sesion cambio a SUSCRIPTOR como: ");
 		System.out.println(suscriptor);
 		Start.usuarioActivo = suscriptor;
@@ -146,65 +146,84 @@ public class Menu {
 	* 
 	*/
 	public void registrarAutor(){
-		String aP,aM,nom,mail,cont;
-		
 		System.out.println(" \tREGISTRAR NUEVO AUTOR\n Ingresa los siguientes datos");
 		System.out.print(" Nombre : ");
-		nom = sc.nextLine();
+		String nom = sc.nextLine();
 		System.out.print(" Apellido Paterno : ");
-		aP = sc.nextLine();
+		String aP = sc.nextLine();
 		System.out.print(" Apellido Materno : ");
-		aM = sc.nextLine();
+		String aM = sc.nextLine();
 		System.out.print(" Email : ");
-		mail = sc.nextLine();
+		String email = sc.nextLine();
 		System.out.print(" Contraseña : ");
 		char[] p = System.console().readPassword();
-		String psswrd = new String(p);
+		String password = new String(p);
 	}
 	
 	/**
 	* 
 	*/
 	public void registrarEditor() {
-		String aP, aM, nom, mail, cont;
-		
 		System.out.println(" \tREGISTRAR NUEVO EDITOR\n Ingresa los siguientes datos");
 		System.out.print(" Nombre : ");
-		nom = sc.nextLine();
+		String nom = sc.nextLine();
 		System.out.print(" Apellido Paterno : ");
-		aP = sc.nextLine();
+		String aP = sc.nextLine();
 		System.out.print(" Apellido Materno : ");
-		aM = sc.nextLine();
+		String aM = sc.nextLine();
 		System.out.print(" Email : ");
-		mail = sc.nextLine();
+		String email = sc.nextLine();
 		System.out.print(" Contraseña : ");
 		char[] p = System.console().readPassword();
-		String psswrd = new String(p);
+		String password = new String(p);
 	}
 	
 	/**
 	* 
 	*/
 	public void registrarRevisor() {
-		String aP, aM, nom, mail, cont;
 		System.out.println(" \tREGISTRAR NUEVO REVISOR\n Ingresa los siguientes datos");
 		System.out.print(" Nombre : ");
-		nom=sc.nextLine();
+		String nom = sc.nextLine();
 		System.out.print(" Apellido Paterno : ");
-		aP=sc.nextLine();
+		String aP = sc.nextLine();
 		System.out.print(" Apellido Materno : ");
-		aM=sc.nextLine();
+		String aM = sc.nextLine();
 		System.out.print(" Email : ");
-		mail=sc.nextLine();
+		String email = sc.nextLine();
 		System.out.print(" Contraseña : ");
-		char[] p=System.console().readPassword();
-		String psswrd = new String(p);
+		char[] p = System.console().readPassword();
+		String password = new String(p);
+	}
+	
+	/**
+	* 
+	*/
+	public void menuDirector(){
+		System.out.println(" Selecciona una opcion :");
+		System.out.println(" 1. Subir articulo para revision");
+		System.out.println(" 2. Consultar estado de articulo");
+		System.out.println(" 3. Consultar articulo");
+		System.out.println(" 4. Salir");
+		int opcion=sc.nextInt();
+		switch(opcion) {
+			case 1: 
+			System.out.println(" ");
+			
+			break;
+			case 2: 
+			
+			break;
+			default: 
+			System.out.println(" Opción incorrecta");
+			break;
+		}
 	}
 	
 	/** 
 	* Muestra el menú para el usuario Autor
 	*/
-	public static void menuAutor(){
+	public void menuAutor(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Subir articulo para revision");
 		System.out.println(" 2. Consultar estado de articulo");
@@ -228,7 +247,7 @@ public class Menu {
 	/**
 	* 
 	*/
-	public static void menuEditor(){
+	public void menuEditor(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Confirmar publicacion");
 		System.out.println(" 2. Consultar estado de articulo");
@@ -253,7 +272,7 @@ public class Menu {
 	/**
 	* Muestra el menú para el usuario Revisor
 	*/
-	public static void menuRevisor(){
+	public void menuRevisor(){
 		System.out.println("\n\nERES UN SUSCRIPTOR!");
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Revisar artículo");
@@ -278,7 +297,7 @@ public class Menu {
 	/**
 	* 
 	*/
-	public static void menuSuscriptor(){
+	public void menuSuscriptor(){
 		System.out.println(" Selecciona una opcion :");
 		System.out.println(" 1. Buscar revista (mediante numero de revista)");
 		System.out.println(" 2. Buscar articulo (mediante folio)");
@@ -322,29 +341,29 @@ public class Menu {
 			sc.nextLine();
 			switch(opcion){
 				case 1: 
-					inicioSesion();
+				inicioSesion();
 				break;
 				case 2: 
-					registrarSuscriptor();
+				registrarSuscriptor();
 				break;
 				case 3: 
-					System.out.println("Buscar una revista");
+				System.out.println("Buscar una revista");
 				break;
 				case 4: 
-					System.out.println("Buscar un articulo");
+				System.out.println("Buscar un articulo");
 				break;
 				case 5: 
-					System.out.println("Mostrar todos los articulos");
+				System.out.println("Mostrar todos los articulos");
 				break;
 				case 6: 
-					System.out.println("Mostrar todas las revistas");
+				System.out.println("Mostrar todas las revistas");
 				break;
 				case 7: 
-					System.out.println("Cerrar programa");
-					salir = true;
+				System.out.println("Cerrar programa");
+				salir = true;
 				break;
 				default:
-					System.out.println(" Opción incorrecta");
+				System.out.println(" Opción incorrecta");
 				break;
 			}
 		} while (! salir);
