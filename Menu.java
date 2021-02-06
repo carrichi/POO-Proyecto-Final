@@ -9,7 +9,7 @@ import Personas.Suscriptores.Suscriptor;
 import Personas.Empleados.*;
 
 /**
-* 
+* Esta clase muestra los diferentes menú para cada usuario
 */
 public class Menu {
 	/**
@@ -29,7 +29,7 @@ public class Menu {
 	
 	/**
 	* 
-	* @return
+	* Inicio del programa
 	*/
 	public void bienvenida() {
 		// AL momento de la bienvenida lo que se realizará será inicializar la "base de datos".
@@ -78,7 +78,7 @@ public class Menu {
 	}
 	
 	/** 
-	* @param sub Suscriptor a registrar
+	* Resgistra un suscriptor
 	*/
 	public void registrarSuscriptor(){
 		System.out.println("\t----- REGISTRAR NUEVO SUSCRIPTOR -----\n Ingresa los siguientes datos");
@@ -119,7 +119,7 @@ public class Menu {
 	}
 	
 	/** 
-	* 
+	* Registra un Autor
 	*/
 	public void registrarAutor(){
 		System.out.println(" \tREGISTRAR NUEVO AUTOR\n Ingresa los siguientes datos");
@@ -164,7 +164,7 @@ public class Menu {
 	}
 	
 	/**
-	* 
+	* Registra un Editor
 	*/
 	public void registrarEditor() {
 		System.out.println(" \tREGISTRAR NUEVO EDITOR\n Ingresa los siguientes datos");
@@ -181,7 +181,7 @@ public class Menu {
 		String password = new String(p);
 	}
 	
-	/**
+	/** Registra un Revisor
 	* 
 	*/
 	public void registrarRevisor() {
@@ -200,7 +200,7 @@ public class Menu {
 	}
 	
 	/**
-	* 
+	* Menu exclusivo del director de la revista
 	*/
 	public boolean menuDirector(){
 		boolean salir = false;
@@ -347,7 +347,7 @@ public class Menu {
 	}
 	
 	/**
-	* 
+	* Menu especifico del Editor
 	*/
 	public boolean menuEditor(){
 		boolean salir = false;
@@ -487,7 +487,7 @@ public class Menu {
 	}
 	
 	/**
-	* 
+	* Menu especifico del suscriptor
 	*/
 	public boolean menuSuscriptor(){
 		boolean salir = false;
@@ -545,7 +545,7 @@ public class Menu {
 	}
 	
 	/**
-	* 
+	* Menu para usuario invitado
 	*/
 	public boolean menuInvitado() {
 		boolean salir = false;
