@@ -6,9 +6,6 @@ package Personas.Suscriptores;
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
-// import java.text.SimpleDateFormat;
-// import java.text.ParseException;
-import java.util.Date;
 import Personas.Persona;
 import PatronVisitor.*;
 
@@ -28,7 +25,7 @@ public class Suscriptor extends Persona implements Visitable{
     /**
      * 
      */
-    private Date suscripcion;
+    private String suscripcion;
 
     /************************************
     *           CONSTRUCTORES           *
@@ -39,7 +36,7 @@ public class Suscriptor extends Persona implements Visitable{
      * @param persona
      * @param suscripcion
      */
-    public Suscriptor(Persona persona, Date suscripcion) {
+    public Suscriptor(Persona persona, String suscripcion) {
         super(persona);
         this.setSuscripcion(suscripcion);
     }
@@ -54,7 +51,7 @@ public class Suscriptor extends Persona implements Visitable{
      * 
      * @return
      */    
-    public Date getSuscripcion() {
+    public String getSuscripcion() {
         return suscripcion;
     }
 
@@ -62,7 +59,7 @@ public class Suscriptor extends Persona implements Visitable{
      * 
      * @param suscripcion
      */
-    public void setSuscripcion(Date suscripcion) {
+    public void setSuscripcion(String suscripcion) {
         this.suscripcion = suscripcion;
     }
     

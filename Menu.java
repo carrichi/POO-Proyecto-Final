@@ -24,15 +24,22 @@ public class Menu {
 	public int bienvenida() {
 		// AL momento de la bienvenida lo que se realizará será inicializar la "base de datos".
 		this.busqueda = new Busqueda();
-		System.out.println(" \n\tBIENVENIDO AL SISTEMA DE ADMINISTRACIÓN\n");
-		System.out.println(" 1. Iniciar sesión");
+		System.out.println(" \n\tBIENVENIDO AL SISTEMA DE ADMINISTRACION\n");
+		System.out.println(" 1. Iniciar sesion");
 		System.out.println(" 2. Registrarse como suscriptor");
 		System.out.println(" 3. Continuar como invitado");
 		System.out.println(" 4. Salir ");
 		System.out.print(" > ");
-		int opcion=sc.nextInt();
+		int opcion = sc.nextInt();
 		System.out.println();
-		return opcion;
+		if (opcion==1 || opcion==2 || opcion==3 || opcion==4) {
+			return opcion;
+		}else {
+			System.out.println("Al parecer no elegiste una opcion correcta, intenta otra vez.");
+			bienvenida();
+		}
+		// En teoría no se alcanza a este -1 si es recursivo.
+		return -1;
 	}
 	
 	/**
@@ -66,7 +73,6 @@ public class Menu {
 		*/
 
 		Persona usuario = busqueda.verificarInicioSesion(mail, psswrd);
-
 		if (usuario != null) {
 			System.out.println("Inicio de sesion exitoso!");
 			return usuario;
@@ -74,71 +80,37 @@ public class Menu {
 			System.out.println("Usuario no encontrado");
 			inicioSesion();
 		}
-
 		// En teoría no llega a este null si es recursivo.
 		return null;
-
-		// try{
-		// 	switch(opcion) {
-		// 		case 1:
-		// 		/* 
-		// 			fileIn = new ObjectInputStream(new FileInputStream("Autores.ser"));
-		// 				Autor autor = buscar( (Autor)per,fileIn);
-		// 				if(autor!=null){
-		// 					System.out.println(" Inicio de secion con exito");
-		// 					menuAutor(autor);
-		// 				}
-		// 				else
-		// 					System.out.println(" Error : no existe el usuario");
-		// 		*/
-		// 			menuAutor();
-		// 			break;
-		// 		case 2: 
-		// 			menuEditor();
-		// 			break;
-		// 		case 3: 
-		// 			menuRevisor();
-		// 			break;
-		// 		case 4: 
-		// 			menuSuscriptor();
-		// 			break;
-		// 		case 5: 
-		// 			break;
-		// 		default: 
-		// 			System.out.println(" Error al ingresar la opcion");
-		// 			break;
-		// 	}
-		// }catch(FileNotFoundException e) {
-		// 	e.printStackTrace();
-		// }catch(IOException e) {
-		// 	e.printStackTrace();
-		// }
-		
 	}
 	
 	/** 
 	 * @param sub Suscriptor a registrar
 	 */
-	public void registrar(Suscriptor sub){
-		String aP,aM,nom,mail,cont;
-		
+	public Persona registrarSuscriptor(){
+		// Limpiar el buffer.
+		sc.nextLine();
+		String aP, aM, nom, email;
 		System.out.println(" \tREGISTRAR NUEVO SUSCRIPTOR\n Ingresa los siguientes datos");
 		System.out.print(" Nombre : ");
-		nom=sc.nextLine();
+		nom = sc.nextLine();
 		System.out.print(" Apellido Paterno : ");
-		aP=sc.nextLine();
+		aP = sc.nextLine();
 		System.out.print(" Apellido Materno : ");
-		aM=sc.nextLine();
+		aM = sc.nextLine();
 		System.out.print(" Email : ");
-		mail=sc.nextLine();
-		System.out.print(" Contraseña : ");
-		char[] p=System.console().readPassword();
+		email = sc.nextLine();
+		System.out.print(" Contrasena : ");
+		char[] p = System.console().readPassword();
 		String psswrd = new String(p);
+		System.out.println("Datos ingresados:\nEmail: "+email+"\nContrasena: "+psswrd);
+		return null;
 	}
 	
-	/** @param autor Autor a registrar
+	/** 
+	 * 
 	 */
-	public void registrar(Autor autor){
+	public void registrarAutor(){
 		String aP,aM,nom,mail,cont;
 		
 		System.out.println(" \tREGISTRAR NUEVO AUTOR\n Ingresa los siguientes datos");
@@ -157,9 +129,8 @@ public class Menu {
 
 	/**
 	 * 
-	 * @param editor
 	 */
-	public void registrar(Editor editor) {
+	public void registrarEditor() {
 		String aP, aM, nom, mail, cont;
 		
 		System.out.println(" \tREGISTRAR NUEVO EDITOR\n Ingresa los siguientes datos");
@@ -178,9 +149,8 @@ public class Menu {
 	
 	/**
 	 * 
-	 * @param revisor
 	 */
-	public void registrar(Revisor revisor) {
+	public void registrarRevisor() {
 		String aP, aM, nom, mail, cont;
 		System.out.println(" \tREGISTRAR NUEVO REVISOR\n Ingresa los siguientes datos");
 		System.out.print(" Nombre : ");

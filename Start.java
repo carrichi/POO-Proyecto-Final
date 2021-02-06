@@ -1,21 +1,25 @@
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
+import Personas.Persona;
+import PatronVisitor.*;
+import java.io.IOException;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
+import Revistas.Articulo;
+import Revistas.Categoria;
 import Revistas.Revista;
-import Personas.Persona;
-// import java.sql.Date;
 import Personas.Empleados.*;
+import Personas.Suscriptores.Suscriptor;
 import Personas.*;
-//import java.io.PrintWriter;
-//import java.io.StringWriter;
-import PatronVisitor.*;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 /**
  * Esta es la clase que realizara la ejecucion de todo el sistema de
@@ -27,24 +31,16 @@ public class Start {
      * 
      * @param args Indica los argumentos que puede recibir desde la consola de
      *             comandos.
-     * @throws ClassNotFoundException Esta siendo utilizada para hacer pruebas de conección a los archivos que funcionarán
-     *                                como "base de datos".
-     * @throws IOException Esta siendo utilizada para hacer pruebas de conección a los archivos que funcionarán como
-     *                     "base de datos".
-     * @throws InterruptedException Se toma como tratada a la posible excepcion que se genere al realizar los "tiempos
-     *                              de carga".
+     * @throws InterruptedException   Se toma como tratada a la posible excepcion
+     *                                que se genere al realizar los "tiempos de
+     *                                carga".
+     * @throws IOException
+     * @throws ClassNotFoundException
      */
-    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
         // Se inicializa la instancia que estará mostrando la información en la pantalla.
         Menu menu = new Menu();
 
-        /**
-         * Hace referencia al usuario que haya ejecutado el programa y ya que es una clase padre
-         * puede optar por ser un empleado, un suscriptor, un invidado o hasta el director de la
-         * empresa. 
-         */
-        Persona usuario;
-        
         /*
             1. Menú inicial que tendrá las siguientes opciones:
                 - Iniciar sesión
@@ -53,7 +49,6 @@ public class Start {
                 - Salir
         */
         int opcion = menu.bienvenida(); // <- Este método mostrará las opciones y retornará su opción tomada.
-
         /*
             2. Dependiendo de su decición se definirá la siguiente acción del usuario.
         */
@@ -64,6 +59,12 @@ public class Start {
         */
         boolean exit = false;
 
+        /*
+            Hace referencia al usuario que haya ejecutado el programa y ya que es una clase padre
+            puede optar por ser un empleado, un suscriptor, un invidado o hasta el director de la
+            empresa. 
+        */
+        Persona usuarioActivo = null;
         switch (opcion) {
             case 1:
                 /*
@@ -71,14 +72,14 @@ public class Start {
                 */
                 // Login()
                 // Si se logra el login, retornará a la persona que esté usando el sistema.
-                usuario = menu.inicioSesion();
+                usuarioActivo = menu.inicioSesion();
                 break;
             case 2:
                 /*
                     Comienza el proceso de registro de un suscriptor.
                 */
-                // Register()
                 // Si se logró registrar correctamente realizará un inicio de sesión automático para seguir.
+                usuarioActivo = menu.registrarSuscriptor();
                 break;
             case 3:
                 /*
@@ -129,10 +130,11 @@ public class Start {
 
             Este sera un ciclo que no terminara hasta que el usuario actual decida cerrar su sesión.
         */
-
         while ( ! exit ) {
+            System.out.println(usuarioActivo.getClass());
             exit = true;
         }
+
          /*  PRUEBA DE VISITOR
         
         Editor editor=new Editor("juan","perez","gomez","abc@gmail.com","contraseña", new Date(System.currentTimeMillis()),"no se",2);

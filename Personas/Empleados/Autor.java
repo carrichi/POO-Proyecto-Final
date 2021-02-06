@@ -6,15 +6,13 @@ package Personas.Empleados;
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
-import java.io.Serializable;
-import java.util.Date;
 import PatronVisitor.*;
 import Personas.Persona;
 
 /**
  * 
  */
-public class Autor extends Empleado implements Serializable,Visitable {
+public class Autor extends Empleado{
     /********************************************
     *           ATRIBUTOS DE INSTANCIA          *
     *********************************************/
@@ -42,7 +40,7 @@ public class Autor extends Empleado implements Serializable,Visitable {
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Autor(Persona persona, Date fechaIngreso, 
+    public Autor(Persona persona, String fechaIngreso, 
                  String institucionProcedencia, int numeroEmpleado) {
         super(persona, fechaIngreso, institucionProcedencia, numeroEmpleado);
     }

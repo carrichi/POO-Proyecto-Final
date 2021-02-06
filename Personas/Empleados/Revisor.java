@@ -8,14 +8,13 @@ package Personas.Empleados;
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
-import java.util.Date;
 import PatronVisitor.*;
 import Personas.Persona;
 
 /**
  * 
  */
-public class Revisor extends Empleado implements Visitable {
+public class Revisor extends Empleado{
     /********************************************
     *          ATRIBUTOS DE INSTANCIA           *
     *********************************************/
@@ -47,7 +46,7 @@ public class Revisor extends Empleado implements Visitable {
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Revisor(Persona persona, Date fechaIngreso,
+    public Revisor(Persona persona, String fechaIngreso,
             String institucionProcedencia, int numeroEmpleado) {
         super(persona, fechaIngreso, institucionProcedencia, numeroEmpleado);
     }

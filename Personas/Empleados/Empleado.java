@@ -8,7 +8,6 @@ package Personas.Empleados;
 ***************************************/
 // import java.text.SimpleDateFormat;
 // import java.text.ParseException;
-import java.util.Date;
 import Personas.Persona;
 import PatronVisitor.*;
 
@@ -28,7 +27,7 @@ public class Empleado extends Persona implements Visitable {
     /**
      * 
      */
-    private Date fechaIngreso;
+    private String fechaIngreso;
     
     /**
      * 
@@ -51,7 +50,7 @@ public class Empleado extends Persona implements Visitable {
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Empleado(Persona persona, Date fechaIngreso, String institucionProcedencia, int numeroEmpleado) {
+    public Empleado(Persona persona, String fechaIngreso, String institucionProcedencia, int numeroEmpleado) {
         super(persona);
         this.fechaIngreso = fechaIngreso;
         this.institucionProcedencia = institucionProcedencia;
@@ -67,7 +66,7 @@ public class Empleado extends Persona implements Visitable {
      * 
      * @return
      */
-    public Date getFechaIngreso() {
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
@@ -75,7 +74,7 @@ public class Empleado extends Persona implements Visitable {
      * 
      * @param fechaIngreso
      */
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }    
 

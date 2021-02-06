@@ -3,25 +3,25 @@
 **********************************************/
 package Personas.Empleados;
 
-import java.util.Date;
-import PatronVisitor.*;
-import Personas.Persona;
-
-import java.io.Serializable;
-
 /**************************************
 *          CLASES DE APOYO            *
 ***************************************/
-// java.util.Scanner <- Ejemplo
+import PatronVisitor.*;
+import Personas.Persona;
 
 /**
  * 
  */
-public class Editor extends Empleado implements Visitable, Serializable {
+public class Editor extends Empleado{
 
     /********************************************
      * ATRIBUTOS DE INSTANCIA *
      *********************************************/
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * 
@@ -51,7 +51,7 @@ public class Editor extends Empleado implements Visitable, Serializable {
      * @param institucionProcedencia
      * @param numeroEmpleado
      */
-    public Editor(Persona persona, Date fechaIngreso,
+    public Editor(Persona persona, String fechaIngreso,
             String institucionProcedencia, int numeroEmpleado) {
         super(persona, fechaIngreso, institucionProcedencia, numeroEmpleado);
 

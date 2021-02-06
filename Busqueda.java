@@ -2,6 +2,7 @@
 *          CLASES DE APOYO            *
 ***************************************/
 import java.util.ArrayList;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -56,17 +57,16 @@ public class Busqueda {
                 apoyando las busquedas.
             */
 
-            FileInputStream fis = null;
-            ObjectInputStream ois = null;
-
+            
             // Archivos que hacen el trabajo de una base de datos para las REVISTAS.
             File revistasBD = new File("database/revistas.txt");
             if (revistasBD.exists()) {
                 // Se prepara el flujo de datos.
-                fis = new FileInputStream(revistasBD);
-                ois = new ObjectInputStream(fis);
-                
-                this.revistas = (ArrayList<Revista>) ois.readObject();
+                FileInputStream fis = new FileInputStream(revistasBD);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                if (revistasBD.length()!=0){
+                    this.revistas = (ArrayList<Revista>) ois.readObject();
+                }
                 ois.close();
             } else {
                 /*
@@ -78,10 +78,11 @@ public class Busqueda {
             File categoriasBD = new File("database/categorias.txt");
             if (categoriasBD.exists()) {
                 // Se prepara el flujo de datos.
-                fis = new FileInputStream(categoriasBD);
-                ois = new ObjectInputStream(fis);
-                
-                this.categorias = (ArrayList<Categoria>) ois.readObject();
+                FileInputStream fis = new FileInputStream(categoriasBD);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                if (categoriasBD.length()!=0) {
+                    this.categorias = (ArrayList<Categoria>) ois.readObject();
+                }
                 ois.close();
             } else {
                 /*
@@ -93,10 +94,11 @@ public class Busqueda {
             File articulosBD = new File("database/articulos.txt");
             if (articulosBD.exists()) {
                 // Se prepara el flujo de datos.
-                fis = new FileInputStream(articulosBD);
-                ois = new ObjectInputStream(fis);
-                
-                this.articulos = (ArrayList<Articulo>) ois.readObject();
+                FileInputStream fis = new FileInputStream(articulosBD);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                if (articulosBD.length()!=0) {
+                    this.articulos = (ArrayList<Articulo>) ois.readObject();
+                }
                 ois.close();
             } else {
                 /*
@@ -109,10 +111,12 @@ public class Busqueda {
             File empleadosBD = new File("database/empleados.txt");
             if (empleadosBD.exists()) {
                 // Se prepara el flujo de datos.
-                fis = new FileInputStream(empleadosBD);
-                ois = new ObjectInputStream(fis);
-                
-                this.empleados = (ArrayList<Empleado>) ois.readObject();
+                FileInputStream fis = new FileInputStream(empleadosBD);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                // Se verifica si el archivo que contiene la base de datos está vacío.                
+                if (empleadosBD.length()!=0) {
+                    this.empleados = (ArrayList<Empleado>) ois.readObject();
+                }
                 ois.close();
             } else {
                 /*
@@ -124,10 +128,11 @@ public class Busqueda {
             File suscriptoresBD = new File("database/suscriptores.txt");
             if (suscriptoresBD.exists()) {
                 // Se prepara el flujo de datos.
-                fis = new FileInputStream(suscriptoresBD);
-                ois = new ObjectInputStream(fis);
-
-                this.suscriptores = (ArrayList<Suscriptor>) ois.readObject();
+                FileInputStream fis = new FileInputStream(suscriptoresBD);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                if (suscriptoresBD.length()!=0) {
+                    this.suscriptores = (ArrayList<Suscriptor>) ois.readObject();
+                }
                 ois.close();
             } else {
                 /*
@@ -136,10 +141,12 @@ public class Busqueda {
                 System.out.println("Oh no! Ocurrió un problema: No se econtró la base de datos.");
                 //Se espera que en alguna de estas verificaciones se genere alguna excepción propia.
             }
+        } catch (EOFException eofe) {
+            System.out.println("Alguno de los archivos de base de datos se encuentra vacio.");
+        } catch (ClassNotFoundException cnfe) {
+            System.out.println("Alguna de las clases no se encontro.");
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Algo paso con alguno de los archivos.");
         }
     }
 
