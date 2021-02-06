@@ -103,7 +103,6 @@ public class Menu {
 		System.out.print(" Contrasena : ");
 		char[] p = System.console().readPassword();
 		String password = new String(p);
-		System.out.println("Datos ingresados:\nEmail: "+email+"\nContrasena: "+password);
 		/*
 			Debe generarse la fecha de registro.
 		*/
@@ -577,7 +576,7 @@ public class Menu {
 					Registrarse como suscriptor.
 					*/
 					registrarSuscriptor();
-				break;
+				return false;
 				case 3:
 					/*
 					Consultar una revista

@@ -70,16 +70,16 @@ public class Start {
         // La única forma de llegar a esta sección es eligiendo salir en alguno de los menús de usuario.
         // Por lo tanto, ya solo se procederá a guardar los archivos de la base de datos y terminar el programa.
         System.out.println("\nHas decidido salir.");
-        // Thread.sleep(1800);
+        Thread.sleep(1800);
         System.out.println("Guardando cambios...");
         menu.database.guardarCambios();
-        // Thread.sleep(2100);
+        Thread.sleep(2100);
         System.out.println("Terminando sesion activa...");
-        // Thread.sleep(2000);
+        Thread.sleep(2000);
         System.out.println("Desconectando base de datos...");
-        // Thread.sleep(4000);
+        Thread.sleep(3000);
         System.out.println("Listo! Gracias por utilizar el sistema de administracion.");
         System.out.println();
-        // Thread.sleep(3000);
+        Thread.sleep(2000);
     }
 }
