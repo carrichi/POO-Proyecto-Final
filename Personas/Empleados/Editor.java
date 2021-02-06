@@ -9,7 +9,7 @@ package Personas.Empleados;
 import PatronVisitor.*;
 import Personas.Persona;
 
-/**
+/** Clase que hereda de Empleado y proporciona metodos y atributos necesarios para un Editor
  * 
  */
 public class Editor extends Empleado{
@@ -24,11 +24,11 @@ public class Editor extends Empleado{
     private static final long serialVersionUID = 1L;
 
     /**
-     * 
+     * numero de cedula
      */
     private int numeroCedula;
 
-    /**
+    /**String maestria o doctorado
      * 
      */
     private String maestriaDoctorado;
@@ -61,29 +61,29 @@ public class Editor extends Empleado{
     *            (Getters y Setters)            *
     *********************************************/
 
-    /**
-     * 
+    /**Regresa el Numero de cedula
+     * @return numCedula
      */
     public int getNumeroCedula() {
         return numeroCedula;
     }
 
-    /**
-     * 
+    /** Guarda el Numero de cedula
+     * @param numeroCedula
      */
     public void setNumeroCedula(int numeroCedula) {
         this.numeroCedula = numeroCedula;
     }
 
-    /**
+     /**Regresa si el Editor tiene maestria o doctorado
      * 
-     * @return
+     * @return maestriaDoctorado
      */
     public String getMaestriaDoctorado() {
         return maestriaDoctorado;
     }
 
-    /**
+    /**Guarda si el Editor tiene maestria o doctorado
      * 
      * @param maestriaDoctorado
      */
@@ -92,27 +92,30 @@ public class Editor extends Empleado{
     }
 
     /**
-     * 
-     * @return
+     * Regresa la cantidad de articulos revisados
+     * @return articulosRevisados
      */
     public int getArticulosRevisados() {
         return articulosRevisados;
     }
 
     /**
-     * 
+     * Guarda la cantidad de articulos revisados
      * @param articulosRevisados
      */
     public void setArticulosRevisados(int articulosRevisados) {
         this.articulosRevisados = articulosRevisados;
     }
     
+	/**Implementa el patron de diseño Visitor 
+     * @param visitor Visitor especifico
+     */
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
 	
-    /**
-     * 
+   /**Tipo de usuario
+     * @return "Editor" Tipo de usuario
      */
     @Override
     public String clase() {
