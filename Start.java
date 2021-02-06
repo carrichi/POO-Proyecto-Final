@@ -11,7 +11,6 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
 import Revistas.Articulo;
 import Revistas.Categoria;
 import Revistas.Revista;
@@ -76,17 +75,13 @@ public class Start {
                 // Login()
                 // Si se logra el login, retornará a la persona que esté usando el sistema.
                 menu.inicioSesion();
-                // Entrará en este if si el usuario a decicido ya no iniciar sesión.
-                if (Start.usuarioActivo == null) {
-                    System.out.println("Tu sesion cambio a invitado.");
-                }
                 break;
             case 2:
                 /*
                     Comienza el proceso de registro de un suscriptor.
                 */
                 // Si se logró registrar correctamente realizará un inicio de sesión automático para seguir.
-                usuarioActivo = menu.registrarSuscriptor();
+                menu.registrarSuscriptor();
                 break;
             case 3:
                 /*

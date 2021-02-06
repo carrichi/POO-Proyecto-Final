@@ -20,46 +20,70 @@ import Revistas.Categoria;
 /**
 * 
 */
-public class Busqueda {
-
+public class AccesoBD {
+    
     /**
-     * 
-     */
+    * 
+    */
     public ArrayList<Empleado> empleados;
-
+    
     /**
-     * 
-     */
+    * 
+    */
     public ArrayList<Suscriptor> suscriptores;
-
+    
     /**
-     * 
-     */
+    * 
+    */
     public ArrayList<Revista> revistas;
+    
+    /**
+    * 
+    */
+    public ArrayList<Articulo> articulos;
+    
+    /**
+    * 
+    */
+    public ArrayList<Categoria> categorias;
     
     /**
      * 
      */
-    public ArrayList<Articulo> articulos;
-
+    private File revistasBD;
+    
     /**
      * 
      */
-    public ArrayList<Categoria> categorias;
-
+    private File categoriasBD;
+    
     /**
      * 
      */
-    public Busqueda () {
+    private File articulosBD;
+    
+    /**
+     * 
+     */
+    private File empleadosBD;
+    
+    /**
+     * 
+     */
+    private File suscriptoresBD;
+    
+    /**
+    * 
+    */
+    public AccesoBD () {
         try {
             /*
-                Al momento de la construcción de una de estas instancias se deben de buscar los archivos en donde se estaran
-                apoyando las busquedas.
+            Al momento de la construcción de una de estas instancias se deben de buscar los archivos en donde se estaran
+            apoyando las busquedas.
             */
-
             
             // Archivos que hacen el trabajo de una base de datos para las REVISTAS.
-            File revistasBD = new File("database/revistas.txt");
+            this.revistasBD = new File("database/revistas.txt");
             if (revistasBD.exists()) {
                 // Se prepara el flujo de datos.
                 FileInputStream fis = new FileInputStream(revistasBD);
@@ -70,12 +94,12 @@ public class Busqueda {
                 ois.close();
             } else {
                 /*
-                    No se encontró el archivo que contiene la base de datos.
+                No se encontró el archivo que contiene la base de datos.
                 */
                 System.out.println("Oh no! Ocurrió un problema: No se econtró la base de datos.");
                 //Se espera que en alguna de estas verificaciones se genere alguna excepción propia.
             }
-            File categoriasBD = new File("database/categorias.txt");
+            this.categoriasBD = new File("database/categorias.txt");
             if (categoriasBD.exists()) {
                 // Se prepara el flujo de datos.
                 FileInputStream fis = new FileInputStream(categoriasBD);
@@ -86,12 +110,12 @@ public class Busqueda {
                 ois.close();
             } else {
                 /*
-                    No se encontró el archivo que contiene la base de datos.
+                No se encontró el archivo que contiene la base de datos.
                 */
                 System.out.println("Oh no! Ocurrió un problema: No se econtró la base de datos.");
                 //Se espera que en alguna de estas verificaciones se genere alguna excepción propia.
             }
-            File articulosBD = new File("database/articulos.txt");
+            this.articulosBD = new File("database/articulos.txt");
             if (articulosBD.exists()) {
                 // Se prepara el flujo de datos.
                 FileInputStream fis = new FileInputStream(articulosBD);
@@ -102,13 +126,13 @@ public class Busqueda {
                 ois.close();
             } else {
                 /*
-                    No se encontró el archivo que contiene la base de datos.
+                No se encontró el archivo que contiene la base de datos.
                 */
                 System.out.println("Oh no! Ocurrió un problema: No se econtró la base de datos.");
                 //Se espera que en alguna de estas verificaciones se genere alguna excepción propia.
             }
             // Archivos que hacen el trabajo de una base de datos para los USUARIOS que utilizan el sistema.
-            File empleadosBD = new File("database/empleados.txt");
+            this.empleadosBD = new File("database/empleados.txt");
             if (empleadosBD.exists()) {
                 // Se prepara el flujo de datos.
                 FileInputStream fis = new FileInputStream(empleadosBD);
@@ -120,12 +144,12 @@ public class Busqueda {
                 ois.close();
             } else {
                 /*
-                    No se encontró el archivo que contiene la base de datos.
+                No se encontró el archivo que contiene la base de datos.
                 */
                 System.out.println("Oh no! Ocurrió un problema: No se econtró la base de datos.");
                 //Se espera que en alguna de estas verificaciones se genere alguna excepción propia.
             }
-            File suscriptoresBD = new File("database/suscriptores.txt");
+            this.suscriptoresBD = new File("database/suscriptores.txt");
             if (suscriptoresBD.exists()) {
                 // Se prepara el flujo de datos.
                 FileInputStream fis = new FileInputStream(suscriptoresBD);
@@ -136,7 +160,7 @@ public class Busqueda {
                 ois.close();
             } else {
                 /*
-                    No se encontró el archivo que contiene la base de datos.
+                No se encontró el archivo que contiene la base de datos.
                 */
                 System.out.println("Oh no! Ocurrió un problema: No se econtró la base de datos.");
                 //Se espera que en alguna de estas verificaciones se genere alguna excepción propia.
@@ -149,16 +173,16 @@ public class Busqueda {
             System.out.println("Algo paso con alguno de los archivos.");
         }
     }
-
+    
     /**
-     * 
-     * @param email
-     * @param password
-     * @return
-     */
+    * 
+    * @param email
+    * @param password
+    * @return
+    */
     public Persona verificarInicioSesion(String email, String password) {
         /*
-            Aquí es donde se realiza la verificación de que el usuario existe.  
+        Aquí es donde se realiza la verificación de que el usuario existe.  
         */
         Persona usuario = buscarUsuario(email);
         if (usuario != null) {
@@ -169,12 +193,12 @@ public class Busqueda {
         }
         return null;
     }
-
+    
     /**
-     * 
-     * @param email
-     * @return
-     */
+    * 
+    * @param email
+    * @return
+    */
     public boolean verificarEmail(String email) {
         // System.out.println("### Estos son los correos de los empleados:");
         for (Empleado empleado  : this.empleados) {
@@ -193,11 +217,15 @@ public class Busqueda {
         // Si se llega hasta este return significa que es un email único.
         return true;
     }
-
     
+    /**
+    * 
+    * @param email
+    * @return
+    */    
     public Persona buscarUsuario(String email) {
         /*
-            Comienza el proceso de búsqueda en los archivos de empleados.txt y suscriptores.txt
+        Comienza el proceso de búsqueda en los archivos de empleados.txt y suscriptores.txt
         */
         for (Empleado empleado : this.empleados) {
             if (empleado.getEmail().equals(email)) {
@@ -211,55 +239,107 @@ public class Busqueda {
         }
         return null;
     }
-   
+    
+    /**
+    * 
+    */
     public static Revista buscarRevista(int numeroRevista) {
         return null;
     }
     
+    /**
+    * 
+    * @param folio
+    * @return
+    */
     public static Articulo buscarArticulo(int folio) {
         return null;
     }
     
-    public static ArrayList<Revista> buscarRevistas() throws FileNotFoundException, IOException, ClassNotFoundException {
-        /*
-            Esto es una prueba de funcionamiento para que funcione como una "base de datos".
-        */
-        File database = new File("database/database.txt");
-        if (database.exists()) {
-            ArrayList<Revista> revistas = new ArrayList<Revista>();
-            revistas.add(new Revista("1"));
-            revistas.add(new Revista("2"));
-            revistas.add(new Revista("3"));
-            revistas.add(new Revista("4"));
-            
-            FileInputStream fis = new FileInputStream(database);
-            
-            FileOutputStream fos = new FileOutputStream(database);
-            
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            
-            oos.writeObject(revistas);
-            oos.close();
-            
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            
-            ArrayList<Revista> revistas2 = (ArrayList<Revista>) ois.readObject();
-            for (Revista revista : revistas2) {
-                System.out.println(revista.toString());
-            }
-            ois.close();
-            return revistas2;
-        } else {
-            /*
-                No se encontró el archivo que contiene la base de datos.
-            */
-            System.out.println("Oh no! Ocurrió un problema: No se econtró la base de datos.");
-            return null;
-        }
+    /**
+    * 
+    * @return
+    * @throws FileNotFoundException
+    * @throws IOException
+    * @throws ClassNotFoundException
+    */
+    public static ArrayList<Revista> buscarRevistas() {
+        return null;
     }
     
+    
+    /**
+    * 
+    * @return
+    */
     public static ArrayList<Articulo> buscarArticulos() {
         return null;
     }
     
+    /**
+    * 
+    * @param empleado
+    */
+    public void agregar(Empleado empleado) {
+        
+    }
+    
+    /**
+    * 
+    * @param suscriptor
+    */
+    public void agregar(Suscriptor suscriptor) {
+        this.suscriptores.add(suscriptor);
+    }
+    
+    /**
+    * 
+    * @param revista
+    */
+    public void agregar(Revista revista) {
+        this.revistas.add(revista);
+    }
+    
+    /**
+    * 
+    * @param categoria
+    */
+    public void agregar(Categoria categoria) {
+        this.categorias.add(categoria);
+    }
+    
+    /**
+    * 
+    * @param articulo
+    */
+    public void agregar(Articulo articulo) {
+        this.articulos.add(articulo);
+    }
+    
+    /**
+    * 
+    */
+    public void guardarCambios() throws FileNotFoundException, IOException, ClassNotFoundException {
+        FileOutputStream[] fos = {
+            new FileOutputStream(this.empleadosBD), 
+            new FileOutputStream(this.suscriptoresBD),
+            new FileOutputStream(this.revistasBD), 
+            new FileOutputStream(this.categoriasBD), 
+            new FileOutputStream(this.articulosBD)
+        };
+
+        ObjectOutputStream[] oos = {
+            new ObjectOutputStream(fos[0]),new ObjectOutputStream(fos[1]),
+            new ObjectOutputStream(fos[2]),new ObjectOutputStream(fos[3]),
+            new ObjectOutputStream(fos[4])
+        };
+        oos[0].writeObject(this.empleados);
+        oos[1].writeObject(this.suscriptores);
+        oos[2].writeObject(this.revistas);
+        oos[3].writeObject(this.categorias);
+        oos[4].writeObject(this.articulos);
+        for (ObjectOutputStream oos2 : oos) {
+            oos2.close();
+        }
+    }
 }

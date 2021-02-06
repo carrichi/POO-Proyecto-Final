@@ -20,8 +20,11 @@ public class Menu {
 	/**
 	 * 
 	 */
-	public Busqueda busqueda;	
+	public AccesoBD database;	
 	
+	/**
+	 * 
+	 */
 	public Calendar fecha = new GregorianCalendar();
 
 	/**
@@ -30,7 +33,7 @@ public class Menu {
 	*/
 	public int bienvenida() {
 		// AL momento de la bienvenida lo que se realizará será inicializar la "base de datos".
-		this.busqueda = new Busqueda();
+		this.database = new AccesoBD();
 		System.out.println(" \n\tBIENVENIDO AL SISTEMA DE ADMINISTRACION\n");
 		System.out.println(" 1. Iniciar sesion");
 		System.out.println(" 2. Registrarse como suscriptor");
@@ -71,7 +74,7 @@ public class Menu {
 		Si existe, retorna a la persona para que la clase Start trabaje con ella, si no existe, se vuelve
 		a llamar recursivamente al método "inicioSesion( )".
 		*/
-		Persona usuario = busqueda.verificarInicioSesion(email, psswrd);
+		Persona usuario = database.verificarInicioSesion(email, psswrd);
 		if (usuario != null) {
 			System.out.println("Inicio de sesion exitoso!");
 			Start.usuarioActivo = usuario;
@@ -86,6 +89,8 @@ public class Menu {
 			
 			if (continuar.equals("Si")) {
 				inicioSesion();
+			} else {
+				System.out.println("Su sesion ha cambiado a invitado.");
 			}
 		}
 	}
@@ -93,7 +98,7 @@ public class Menu {
 	/** 
 	* @param sub Suscriptor a registrar
 	*/
-	public Persona registrarSuscriptor(){
+	public void registrarSuscriptor(){
 		String aP, aM, nom, email;
 		System.out.println(" \tREGISTRAR NUEVO SUSCRIPTOR\n Ingresa los siguientes datos");
 		System.out.print(" Nombre : ");
@@ -106,7 +111,7 @@ public class Menu {
 		while (true) {
 			System.out.print(" Email : ");
 			email = sc.nextLine();
-			if ( busqueda.verificarEmail(email) ) {
+			if ( database.verificarEmail(email) ) {
 				System.out.println(" El correo esta disponible! Sigamos.");
 				break;
 			} else {
@@ -118,16 +123,23 @@ public class Menu {
 		char[] p = System.console().readPassword();
 		String psswrd = new String(p);
 		System.out.println("Datos ingresados:\nEmail: "+email+"\nContrasena: "+psswrd);
-		System.out.println("Esta todo listo para tu registro!");
-
 		/*
 			Debe generarse la fecha de registro.
 		*/
 		String suscripcion = this.fecha.get(Calendar.YEAR)+ "/" + (int)(this.fecha.get(Calendar.MONTH)+ 1) + "/" + this.fecha.get(Calendar.DAY_OF_MONTH);
+		
+		System.out.println("Esta todo listo para tu registro!");
 
 		Suscriptor suscriptor = new Suscriptor(new Persona(nom, aP, aM, email, psswrd),suscripcion);
+
+		/*
+			Aquí inicia la parte del registro donde se añade a la base de datos.
+		*/
+		database.agregar(suscriptor);
+
+		System.out.println("La sesion cambio a SUSCRIPTOR como: ");
 		System.out.println(suscriptor);
-		return null;
+		Start.usuarioActivo = suscriptor;
 	}
 	
 	/** 
