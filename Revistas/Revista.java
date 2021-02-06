@@ -11,7 +11,7 @@ import java.io.Serializable;
 import PatronVisitor.*;
 
 /**
- * 
+ * Clase que define los elementos de una revista. Una revista contiene articulos
  */
 public class Revista implements Serializable,Visitable {
     /********************************************
@@ -24,27 +24,27 @@ public class Revista implements Serializable,Visitable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 
+     * Titulo de la revista
      */
     private String titulo;
 
     /**
-     * 
+     * Fecha de publicacion de la revista
      */
     private Date fechaPublicacion;
 
     /**
-     * 
+     * Numero de esta revista
      */
     private int numeroRevista;
 
     /**
-     * 
+     * Estado de la revista 
      */
     private String estado;
 
     /**
-     * 
+     * true - publicada , false - no publicada
      */
     private boolean publicada;
 
@@ -70,7 +70,10 @@ public class Revista implements Serializable,Visitable {
     public Revista() {
 
     }
-
+	
+	/** Crea una revista con el titulo
+	* @param titulo Titulo de la revista
+	*/
     public Revista(String titulo) {
         this.titulo = titulo;
     }
@@ -81,7 +84,7 @@ public class Revista implements Serializable,Visitable {
     *          (Getters y Setters)            *
     *******************************************/
 
-    /**
+    /**Guarda el titulo de la revista
      * 
      * @param titulo
      */
@@ -90,23 +93,23 @@ public class Revista implements Serializable,Visitable {
     }
     
     /**
-     * 
-     * @return
+     * Regresa el titulo de la revista
+     * @return titulo
      */
     public String getTitulo() {
         return titulo;
     }
 
     /**
-     * 
-     * @return
+     * Regresa la fecha de publicacion de la revista
+     * @return fechaPublicacion
      */
     public Date getFechaPublicacion() {
         return fechaPublicacion;
     }
 
     /**
-     * 
+     * Guarda la fecha de publicacion de la revista
      * @param fechaPublicacion
      */
     public void setFechaPublicacion(Date fechaPublicacion) {
@@ -114,14 +117,14 @@ public class Revista implements Serializable,Visitable {
     }
 
     /**
-     * 
-     * @return
+     * Regresa el numero de la revista
+     * @return numeroRevista
      */
     public int getNumeroRevista() {
         return numeroRevista;
     }
 
-    /**
+    /**Guarda el numero de la revista
      * 
      * @param numeroRevista
      */
@@ -132,7 +135,7 @@ public class Revista implements Serializable,Visitable {
     /**
      * Este metodo hara posible saber si una revista tiene un estado de "publicada" o "sin publicar" mediante
      * una cadena de caracteres.
-     * @return
+     * @return estado
      */
     public String getEstado() {
         return estado;
@@ -147,8 +150,8 @@ public class Revista implements Serializable,Visitable {
     }
 
     /**
-     * 
-     * @return
+     * Regresa el estado de la revista
+     * @return publicada true si esta publicada, false si no
      */
     public boolean estaPublicada() {
         return publicada;
@@ -165,25 +168,31 @@ public class Revista implements Serializable,Visitable {
     }
 
     /**
-     * 
-     * @return
+     * Regresa el (objeto) contenido de la revista
+     * @return contenido
      */
     public Contenido getContenido() {
         return contenido;
     }
 
     /**
-     * 
+     * Guarda el contenido de la revista
      * @param contenido
      */
     public void setContenido(Contenido contenido) {
         this.contenido = contenido;
     }
 
+	/** Regresa el titulo
+	* @return String
+	*/
     public String toString() {
         return this.titulo;
     }
     
+	/**Implementa el patron de diseño Visitor 
+     * @param visitor Visitor especifico
+     */
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
