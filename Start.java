@@ -23,13 +23,6 @@ import PatronVisitor.*;
  */
 public class Start {
     /**
-     * Hace referencia al usuario que haya ejecutado el programa y ya que es una clase padre
-     * puede optar por ser un empleado, un suscriptor, un invidado o hasta el director de la
-     * empresa. 
-     */
-    Persona usuario;
-
-    /**
      * Metodo que realiza el comienzo de todo el programa.
      * 
      * @param args Indica los argumentos que puede recibir desde la consola de
@@ -42,6 +35,16 @@ public class Start {
      *                              de carga".
      */
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+        // Se inicializa la instancia que estará mostrando la información en la pantalla.
+        Menu menu = new Menu();
+
+        /**
+         * Hace referencia al usuario que haya ejecutado el programa y ya que es una clase padre
+         * puede optar por ser un empleado, un suscriptor, un invidado o hasta el director de la
+         * empresa. 
+         */
+        Persona usuario;
+        
         /*
             1. Menú inicial que tendrá las siguientes opciones:
                 - Iniciar sesión
@@ -49,7 +52,7 @@ public class Start {
                 - Continuar como invitado
                 - Salir
         */
-        int opcion = Menu.bienvenida(); // <- Este método mostrará las opciones y retornará su opción tomada.
+        int opcion = menu.bienvenida(); // <- Este método mostrará las opciones y retornará su opción tomada.
 
         /*
             2. Dependiendo de su decición se definirá la siguiente acción del usuario.
@@ -68,8 +71,7 @@ public class Start {
                 */
                 // Login()
                 // Si se logra el login, retornará a la persona que esté usando el sistema.
-                usuario = Menu.inicioSesion();
-
+                usuario = menu.inicioSesion();
                 break;
             case 2:
                 /*

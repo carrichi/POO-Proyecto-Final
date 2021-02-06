@@ -64,6 +64,16 @@ public class Persona implements Serializable {
 
     /**
      * 
+     * @param email
+     * @param password
+     */
+    public Persona(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
+    /**
+     * 
      * @param nombre
      * @param apellidoP
      * @param appellidoM

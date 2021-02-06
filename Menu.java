@@ -3,10 +3,6 @@
 ***************************************/
 import java.util.Scanner;
 import Personas.Persona;
-import java.io.ObjectInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import Personas.Empleados.*;
 import Personas.Suscriptores.Suscriptor;
 
@@ -18,12 +14,16 @@ public class Menu {
 	 * 
 	 */
 	static Scanner sc = new Scanner(System.in);
+
+	public Busqueda busqueda;	
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public static int bienvenida() {
+	public int bienvenida() {
+		// AL momento de la bienvenida lo que se realizará será inicializar la "base de datos".
+		this.busqueda = new Busqueda();
 		System.out.println(" \n\tBIENVENIDO AL SISTEMA DE ADMINISTRACIÓN\n");
 		System.out.println(" 1. Iniciar sesión");
 		System.out.println(" 2. Registrarse como suscriptor");
@@ -41,7 +41,7 @@ public class Menu {
 	 * @return Retorna una instancia de tipo Persona porque al ser la clase padre de cualquier usuario hace que 
 	 * pueda comportarse como un empleado, director, editor, suscriptor, etc. 
 	 */
-	public static Persona inicioSesion() {
+	public Persona inicioSesion() {
 		String mail;
 		System.out.println(" Tipo de usuario");
 		System.out.println(" 1. Director");
@@ -65,7 +65,7 @@ public class Menu {
 			a llamar recursivamente al método "inicioSesion( )".
 		*/
 
-		Persona usuario = Busqueda.verificarInicioSesion(mail, psswrd);
+		Persona usuario = busqueda.verificarInicioSesion(mail, psswrd);
 
 		if (usuario != null) {
 			System.out.println("Inicio de sesion exitoso!");
@@ -143,13 +143,13 @@ public class Menu {
 		
 		System.out.println(" \tREGISTRAR NUEVO AUTOR\n Ingresa los siguientes datos");
 		System.out.print(" Nombre : ");
-		nom=sc.nextLine();
+		nom = sc.nextLine();
 		System.out.print(" Apellido Paterno : ");
-		aP=sc.nextLine();
+		aP = sc.nextLine();
 		System.out.print(" Apellido Materno : ");
-		aM=sc.nextLine();
+		aM = sc.nextLine();
 		System.out.print(" Email : ");
-		mail=sc.nextLine();
+		mail = sc.nextLine();
 		System.out.print(" Contraseña : ");
 		char[] p = System.console().readPassword();
 		String psswrd = new String(p);
@@ -164,15 +164,15 @@ public class Menu {
 		
 		System.out.println(" \tREGISTRAR NUEVO EDITOR\n Ingresa los siguientes datos");
 		System.out.print(" Nombre : ");
-		nom=sc.nextLine();
+		nom = sc.nextLine();
 		System.out.print(" Apellido Paterno : ");
-		aP=sc.nextLine();
+		aP = sc.nextLine();
 		System.out.print(" Apellido Materno : ");
-		aM=sc.nextLine();
+		aM = sc.nextLine();
 		System.out.print(" Email : ");
-		mail=sc.nextLine();
+		mail = sc.nextLine();
 		System.out.print(" Contraseña : ");
-		char[] p=System.console().readPassword();
+		char[] p = System.console().readPassword();
 		String psswrd = new String(p);
 	}
 	
