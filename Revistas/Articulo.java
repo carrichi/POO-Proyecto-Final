@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import PatronVisitor.*;
 
 /**
- * 
+ * Clase que representa un articulo de una revista
  */
 public class Articulo implements Serializable,Visitable {
     /********************************************
@@ -25,27 +25,27 @@ public class Articulo implements Serializable,Visitable {
      */
     private static final long serialVersionUID = 1L;
 
-    /**
+    /**Titulo del articulo
      * 
      */
     private String titulo;
 
-    /**
+    /**Sinopsis del articulo
      * 
      */
     private String sinopsis;
 
-    /**
+    /**Categoria del articulo
      * 
      */
     private String categoria;
 
-    /**
+    /** Folio del articulo
      * 
      */
     private String folio;
 
-    /**
+    /** Autor o autores del articulo
      * 
      */
     private Autor[] autores = new Autor[3];
@@ -88,23 +88,23 @@ public class Articulo implements Serializable,Visitable {
     *          (Getters y Setters)            *
     *******************************************/
 
-    /**
-     * 
+    /**Regresa el tituo del articulo
+     * @return titulo
      */
     public String getTitulo() {
         return titulo;
     }
 
     /**
-     * 
-     * @return
+     * Regresa calificacion puesta por el Revisor
+     * @return calificacion
      */
     public ArrayList<Integer> getCalificaciones() {
         return calificaciones;
     }
 
     /**
-     * 
+     * Guarda las calificaciones del articulo
      * @param calificaciones
      */
     public void setCalificaciones(ArrayList<Integer> calificaciones) {
@@ -112,14 +112,14 @@ public class Articulo implements Serializable,Visitable {
     }
 
     /**
-     * 
-     * @return
+     * Regresa los Revisores de este articulo
+     * @return revisores
      */
     public ArrayList<Revisor> getRevisores() {
         return revisores;
     }
 
-    /**
+    /**Guarda los Revisores de este Articulo
      * 
      * @param revisores
      */
@@ -128,31 +128,31 @@ public class Articulo implements Serializable,Visitable {
     }
 
     /**
-     * 
-     * @return
+     * Regresa el estado del articulo
+     * @return publicado true si ya se publico, false si no 
      */
     public boolean isPublicado() {
         return publicado;
     }
 
-    /**
+    /**Guarda el estado del articulo
      * 
-     * @param publicado
+     * @param publicado true si ya se publico, false si no
      */
     public void setPublicado(boolean publicado) {
         this.publicado = publicado;
     }
 
-    /**
+    /**Regresa el estado despues de la revision
      * 
-     * @return
+     * @return estadoRevision
      */
     public String getEstadoRevision() {
         return estadoRevision;
     }
 
     /**
-     * 
+     * Guarda el estado despues de la revision
      * @param estadoRevision
      */
     public void setEstadoRevision(String estadoRevision) {
@@ -160,45 +160,45 @@ public class Articulo implements Serializable,Visitable {
     }
 
     /**
-     * 
-     * @return
+     * Regresa los auteres del articulo
+     * @return autores
      */
     public Autor[] getAutores() {
         return autores;
     }
 
     /**
-     * 
+     * Guarda los autores del articulo
      * @param autores
      */
     public void setAutores(Autor[] autores) {
         this.autores = autores;
     }
 
-    /**
-     * 
+    /**Regresa el folio del articulo
+     * @return folio
      */
     public String getFolio() {
         return folio;
     }
 
-    /**
-     * 
+    /**Guarda el folio del articulo
+     * @param folio
      */
     public void setFolio(String folio) {
         this.folio = folio;
     }
 
     /**
-     * 
-     * @return
+     * Regresa la categoria del articulo
+     * @return categoria
      */
     public String getCategoria() {
         return categoria;
     }
 
     /**
-     * 
+     * Guarda la categoria del articulo
      * @param categoria
      */
     public void setCategoria(String categoria) {
@@ -206,15 +206,15 @@ public class Articulo implements Serializable,Visitable {
     }
 
     /**
-     * 
-     * @return
+     * Regresa la sinopsis del articulo
+     * @return sinopsis
      */
     public String getSinopsis() {
         return sinopsis;
     }
 
     /**
-     * 
+     * Guarda la sinopsis del articulo
      * @param sinopsis
      */
     public void setSinopsis(String sinopsis) {
@@ -222,13 +222,16 @@ public class Articulo implements Serializable,Visitable {
     }
 
     /**
-     * 
+     * Guarda el titulo del articulo
      * @param titulo
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
     
+	/**Implementa el patron de diseño Visitor 
+     * @param visitor Visitor especifico
+     */
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}

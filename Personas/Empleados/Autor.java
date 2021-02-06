@@ -10,7 +10,7 @@ import PatronVisitor.*;
 import Personas.Persona;
 
 /**
- * 
+ * Clase que hereda de Empleado y proporciona metodos y atributos necesarios para un Autor
  */
 public class Autor extends Empleado{
     /********************************************
@@ -52,27 +52,30 @@ public class Autor extends Empleado{
     *******************************************/
 
     /**
-     * 
-     * @return
+     * Regresa la cantidad de articulos escritos
+     * @return articulosEscritos Cantidad de articulos escritos
      */
     public int getArticulosEscritos() {
         return articulosEscritos;
     }
 
     /**
-     * 
-     * @param articulosEscritos
+     * Guarda la cantidad de articulos escritos
+     * @param articulosEscritos antidad de articulos escritos
      */
     public void setArticulosEscritos(int articulosEscritos) {
         this.articulosEscritos = articulosEscritos;
     }
     
+    /**Implementa el patron de diseño Visitor 
+     * @param visitor Visitor especifico
+     */
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
 
-    /**
-     * 
+    /**Tipo de usuario
+     * @return "Autor" Tipo de usuario
      */
     @Override
     public String clase() {
