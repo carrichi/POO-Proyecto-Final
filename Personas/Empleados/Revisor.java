@@ -12,7 +12,7 @@ import PatronVisitor.*;
 import Personas.Persona;
 
 /**
- * 
+ * Clase que hereda de Empleado y proporciona metodos y atributos necesarios para un Editor
  */
 public class Revisor extends Empleado{
     /********************************************
@@ -25,7 +25,7 @@ public class Revisor extends Empleado{
     private static final long serialVersionUID = 1L;
 
     /**
-     * 
+     * Años de experiencia
      */
     private String aniosExperencia;
 
@@ -58,15 +58,15 @@ public class Revisor extends Empleado{
     *******************************************/    
 
     /**
-     * 
-     * @return
+     * Regresa cantidad de articulos revisados
+     * @return articulosRevisados
      */
     public int getArticulosRevisados() {
         return articulosRevisados;
     }
 
     /**
-     * 
+     * Guarda la cantidad de articulos revisados
      * @param articulosRevisados
      */
     public void setArticulosRevisados(int articulosRevisados) {
@@ -74,31 +74,31 @@ public class Revisor extends Empleado{
     }
 
     /**
-     * 
-     * @return
+     * Regresa los años de experiencia
+     * @return aniosExperiencia
      */
     public String getAniosExperencia() {
         return aniosExperencia;
     }
 
     /**
-     * 
+     * Guarda los años de experiencia
      * @param aniosExperencia
      */
     public void setAniosExperencia(String aniosExperencia) {
         this.aniosExperencia = aniosExperencia;
     }
     
-    /**
-     * 
+    /**Implementa el patron de diseño Visitor 
+     * @param visitor Visitor especifico
      */
     @Override
     public void aceptar(Visitor visitor){
 		visitor.visit(this);
 	}
 
-    /**
-     * 
+    /**Tipo de usuario
+     * @return "Revisor" Tipo de usuario
      */
     @Override
     public String clase() {
